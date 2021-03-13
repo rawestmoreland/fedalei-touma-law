@@ -1,0 +1,35 @@
+{
+  "name": "fedaleitoumalawfirm",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "package.json",
+  "author": "rawestmoreland <rawestmoreland@gmail.com>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "sanity start",
+    "format": "prettier-eslint --write \"**/*.js\" \"!node_modules/**\"",
+    "build": "sanity build",
+    "graphql-deploy": "sanity graphql deploy --playground",
+    "lint": "eslint .",
+    "test": "sanity check"
+  },
+  "keywords": [
+    "sanity"
+  ],
+  "dependencies": {
+    "@sanity/base": "^2.6.0",
+    "@sanity/components": "^2.2.6",
+    "@sanity/core": "^2.6.1",
+    "@sanity/dashboard": "^2.2.6",
+    "@sanity/default-layout": "^2.6.0",
+    "@sanity/default-login": "^2.2.6",
+    "@sanity/desk-tool": "^2.6.1",
+    "@sanity/vision": "^2.2.6",
+    "prop-types": "^15.7",
+    "react": "^17.0",
+    "react-dom": "^17.0",
+    "sanity-plugin-dashboard-widget-netlify": "^1.0.1"
+  },
+  "devDependencies": {}
+}
