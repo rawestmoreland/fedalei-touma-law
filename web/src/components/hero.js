@@ -32,13 +32,10 @@ const maybeImage = (illustration) => {
 function Hero(props) {
 	const img = maybeImage(props.illustration);
 	return (
-		<div className='relative w-screen h-screen mx-auto flex flex-wrap flex-col md:flex-row items-center'>
-			<div className='from-transparent to-white bg-gradient-to-b sm:relative md:absolute top-0 left-0'>
-				{img}
-			</div>
-			{/* Left col */}
-			<div className='flex flex-col p-4 bg-white w-full sm:mx-auto md:mx-20 bg-opacity-60 rounded-md justify-between items-center z-50'>
-				<h1 className='text-blueGrey-800 text-5xl font-bold leading-tight text-center'>
+		<div className='relative w-screen h-screen mx-auto flex flex-wrap flex-col lg:flex-row items-start'>
+			<div className='md:relative lg:absolute top-0 left-0'>{img}</div>
+			<div className='flex flex-col p-4 w-full sm:mx-auto lg:mx-40 lg:mt-10 rounded-md justify-between items-center z-50'>
+				<h1 className='text-blueGrey-800 text-5xl font-bold leading-tight tracking-wide text-center'>
 					{props.heading}
 				</h1>
 				<div className='leading-normal text-2xl text-center mb-8'>
@@ -51,8 +48,6 @@ function Hero(props) {
 					/>
 				)}
 			</div>
-			{/* Right col */}
-			{/* <div className='w-full md:w-3/5 py-6 text-center'>{img}</div> */}
 		</div>
 	);
 }
