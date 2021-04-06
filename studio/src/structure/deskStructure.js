@@ -1,5 +1,4 @@
 import S from '@sanity/desk-tool/structure-builder'
-import { MdMenu } from 'react-icons/md'
 import { GoBrowser as PageIcon, GoHome, GoSettings } from 'react-icons/go'
 
 import landingPages from './landingPages'
