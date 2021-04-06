@@ -30,7 +30,7 @@ module.exports = {
 				background_color: fullConfig.theme.colors.white,
 				theme_color: fullConfig.theme.colors.green['500'],
 				display: `minimal-ui`,
-				icon: `src/images/tailwind-icon.png`,
+				icon: `src/images/tf-favicon.png`,
 			},
 		},
 		{
@@ -52,6 +52,15 @@ module.exports = {
 				token: process.env.SANITY_READ_TOKEN,
 				watchMode: !isProd,
 				overlayDrafts: !isProd,
+			},
+		},
+		{
+			resolve: `gatsby-plugin-google-fonts`,
+			options: {
+				fonts: [
+					`Cinzel`, // you can also specify font weights and styles
+				],
+				display: 'swap',
 			},
 		},
 		`gatsby-plugin-offline`,
