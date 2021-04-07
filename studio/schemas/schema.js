@@ -22,6 +22,8 @@ import hero from './objects/hero'
 import illustration from './objects/illustration'
 import bioPortableText from './objects/bioPortableText'
 import siteSettings from './documents/siteSettings'
+import textWithIllustration from './objects/textWithIllustration'
+import infoRows from './objects/infoRows'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -48,6 +50,8 @@ export default createSchema({
     route,
     simpleBlockContent,
     siteSettings,
+    infoRows,
+    textWithIllustration,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     blockContent,

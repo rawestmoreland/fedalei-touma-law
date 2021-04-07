@@ -12,8 +12,8 @@ function Layout(props) {
 
 			<main className='flex-1 w-full'>{children}</main>
 
-			<footer className='bg-transparent'>
-				<nav className='flex justify-between max-w-4xl p-4 mx-auto text-sm md:p-8'>
+			<footer className='w-full bg-transparent'>
+				<nav className='flex justify-between p-4 mx-auto text-sm md:p-8'>
 					<p className='text-blueGrey-800'>
 						Created by{` `}
 						<a

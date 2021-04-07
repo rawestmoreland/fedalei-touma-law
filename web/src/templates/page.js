@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Hero from '../components/hero';
+import InfoRows from '../components/InfoRows';
 
 import GraphQLErrorList from '../components/graphql-error-list';
 import SEO from '../components/seo';
@@ -59,6 +60,9 @@ const Page = (props) => {
 			switch (c._type) {
 				case 'hero':
 					el = <Hero key={c._key} {...c} />;
+					break;
+				case 'infoRows':
+					el = <InfoRows key={c._key} {...c} />;
 					break;
 				default:
 					el = null;

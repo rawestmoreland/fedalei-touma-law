@@ -11,17 +11,23 @@ function SEO({ description, lang, meta, keywords, title, image }) {
 			query={detailsQuery}
 			render={(data) => {
 				const metaDescription =
-					description || (data.site && data.site.description) || '';
+					description ||
+					(data.site &&
+						data.site.openGraph &&
+						data.site.openGraph.description) ||
+					'';
 				const siteTitle = (data.site && data.site.title) || '';
 				const siteAuthor =
 					(data.site && data.site.author && data.site.author.name) ||
 					'';
 				const metaImage =
-					image && image.asset
+					data.site.image && data.site.openGraph.image.asset
 						? imageUrlFor(buildImageObj(image)).width(1200).url()
 						: '';
 
 				const pageTitle = title || siteTitle;
+
+				console.log(metaImage);
 
 				return (
 					<Helmet
@@ -112,6 +118,9 @@ const detailsQuery = graphql`
 				title
 				description
 				keywords
+				image {
+					...SanityImage
+				}
 			}
 		}
 	}

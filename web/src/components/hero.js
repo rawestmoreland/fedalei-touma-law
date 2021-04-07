@@ -4,6 +4,7 @@ import clientConfig from '../../client-config';
 import CTALink from './CTALink';
 
 import { getFluidGatsbyImage } from 'gatsby-source-sanity';
+
 const maybeImage = (illustration) => {
 	let img = null;
 	if (
@@ -32,10 +33,10 @@ const maybeImage = (illustration) => {
 function Hero(props) {
 	const img = maybeImage(props.illustration);
 	return (
-		<div className='relative w-screen h-screen mx-auto flex flex-wrap flex-col lg:flex-row items-start'>
-			<div className='sm:absolute top-0 left-0'>{img}</div>
-			<div className='flex flex-col p-4 w-full sm:mx-auto lg:mx-40 lg:mt-10 rounded-md justify-between items-center z-50'>
-				<h1 className='text-blueGrey-800 text-5xl font-bold leading-tight tracking-wide text-center'>
+		<div className='relative w-screen mx-auto flex flex-wrap flex-col lg:flex-row items-start'>
+			<div className='relative bg-white'>{img}</div>
+			<div className='md:absolute md:top-0 md:left-0 flex flex-col p-4 w-full mx-auto xl:mt-5 rounded-md justify-between items-center z-50'>
+				<h1 className='text-blueGrey-800 text-5xl xl:text-6xl font-bold leading-tight tracking-wide text-center'>
 					{props.heading}
 				</h1>
 				<div className='leading-normal text-2xl text-center mb-8'>

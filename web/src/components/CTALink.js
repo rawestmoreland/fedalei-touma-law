@@ -14,7 +14,6 @@ const doNavigate = (target) => {
 };
 
 const CTALink = (props) => {
-	console.log(props);
 	let link = props.route || props.link || props.anchor || '#';
 	if (
 		props.landingPageRoute &&

@@ -16,6 +16,26 @@ module.exports = {
 				body: ['Open Sans'],
 				cinzel: ['Cinzel', 'ui-serif', 'Georgia'],
 			},
+			backgroundImage: (theme) => ({
+				'main-hero': "url('/img/hero-pattern.svg')",
+				'footer-texture': "url('/img/footer-texture.png')",
+			}),
+		},
+		screens: {
+			sm: '640px',
+			// => @media (min-width: 640px) { ... }
+
+			md: '900px',
+			// => @media (min-width: 768px) { ... }
+
+			lg: '1024px',
+			// => @media (min-width: 1024px) { ... }
+
+			xl: '1280px',
+			// => @media (min-width: 1280px) { ... }
+
+			'2xl': '1536px',
+			// => @media (min-width: 1536px) { ... }
 		},
 	},
 };
