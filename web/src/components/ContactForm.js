@@ -74,7 +74,7 @@ const ContactForm = (props) => {
 						type='hidden'
 						name='subject'
 						value={`New website form submission from ${firstname}`}
-						{...register('formId')}
+						{...register('subject')}
 					/>
 					<div className='flex flex-col md:flex-row justify-between w-full'>
 						<label htmlFor='firstname'>
