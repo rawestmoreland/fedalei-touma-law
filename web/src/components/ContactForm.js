@@ -1,6 +1,6 @@
 import React from 'react';
 import { navigate } from 'gatsby';
-import { useForm } from 'react-hook-form';
+import { useForm, useWatch } from 'react-hook-form';
 
 const ContactForm = (props) => {
 	const {
@@ -8,7 +8,14 @@ const ContactForm = (props) => {
 		handleSubmit,
 		formState: { errors },
 		reset,
+		control,
 	} = useForm();
+
+	const firstname = useWatch({
+		control,
+		name: 'firstname', // without supply name will watch the entire form, or ['firstName', 'lastName'] to watch both
+		defaultValue: '', // default value before the render
+	});
 
 	// Transforms the form data from the React Hook Form output to a format Netlify can read
 	const encode = (data) => {
@@ -55,12 +62,18 @@ const ContactForm = (props) => {
 					<input
 						type='hidden'
 						name='form-name'
-						value='contact-form'
+						value='Touma & Fedalei Contact Form'
 					/>
 					<input
 						type='hidden'
 						name='formId'
-						value='contact-form'
+						value='Touma & Fedalei Contact Form'
+						{...register('formId')}
+					/>
+					<input
+						type='hidden'
+						name='subject'
+						value={`New website form submission from ${firstname}`}
 						{...register('formId')}
 					/>
 					<div className='flex flex-col md:flex-row justify-between w-full'>
