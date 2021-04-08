@@ -1,4 +1,5 @@
 import React from 'react';
+import { navigate } from 'gatsby';
 import { useForm } from 'react-hook-form';
 
 const ContactForm = (props) => {
@@ -6,6 +7,7 @@ const ContactForm = (props) => {
 		register,
 		handleSubmit,
 		formState: { errors },
+		reset,
 	} = useForm();
 
 	// Transforms the form data from the React Hook Form output to a format Netlify can read
