@@ -25,6 +25,7 @@ import siteSettings from './documents/siteSettings'
 import textWithIllustration from './objects/textWithIllustration'
 import infoRows from './objects/infoRows'
 import contactForm from './objects/contactForm'
+import contact from './documents/contact'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -54,6 +55,7 @@ export default createSchema({
     infoRows,
     textWithIllustration,
     contactForm,
+    contact,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     blockContent,
