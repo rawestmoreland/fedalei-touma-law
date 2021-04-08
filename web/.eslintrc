@@ -10,7 +10,8 @@
 		// https://eslint.org/docs/2.0.0/rules/strict
 		"strict": 0,
 		"react/prop-types": 0, // disable rule
-		"no-mixed-spaces-and-tabs": 0 // disable rule
+		"no-mixed-spaces-and-tabs": 0, // disable rule
+		"react/no-unescaped-entities": 0
 	},
 	"settings": {
 		"react": {

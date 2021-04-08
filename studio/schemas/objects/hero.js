@@ -8,6 +8,10 @@ export default {
       type: 'string',
     },
     {
+      name: 'anchor',
+      type: 'string',
+    },
+    {
       name: 'heading',
       type: 'string',
       title: 'Heading',

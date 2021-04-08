@@ -7,6 +7,7 @@ export const NavMenu = graphql`
 			kind
 			link
 			route
+			anchor
 			landingPageRoute {
 				... on SanityRoute {
 					id

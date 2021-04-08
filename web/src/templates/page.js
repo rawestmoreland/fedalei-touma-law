@@ -3,6 +3,8 @@ import { graphql } from 'gatsby';
 
 import Hero from '../components/hero';
 import InfoRows from '../components/InfoRows';
+import ContactForm from '../components/ContactForm';
+import { BsChevronDoubleUp as UpChevron } from 'react-icons/bs';
 
 import GraphQLErrorList from '../components/graphql-error-list';
 import SEO from '../components/seo';
@@ -64,6 +66,9 @@ const Page = (props) => {
 				case 'infoRows':
 					el = <InfoRows key={c._key} {...c} />;
 					break;
+				case 'contactForm':
+					el = <ContactForm key={c._key} {...c} />;
+					break;
 				default:
 					el = null;
 			}
@@ -81,6 +86,15 @@ const Page = (props) => {
 				keywords={site.keywords}
 			/>
 			{content}
+			<button
+				id='scroll-btn'
+				className='hidden fixed bottom-20 right-4 md:bottom-24 md:right-10 scroll-btn bg-white bg-opacity-80 p-1 rounded'
+				title='Top'
+				to='#top'
+			>
+				<UpChevron className='mx-auto' />
+				<span className='font-bold'>To Top</span>
+			</button>
 		</Layout>
 	);
 };

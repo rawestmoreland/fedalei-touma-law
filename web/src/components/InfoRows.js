@@ -32,9 +32,9 @@ const InfoRow = (props) => {
 				<h3 className='text-3xl text-gray-800 font-bold leading-none mb-3'>
 					{props.title}
 				</h3>
-				<p className='text-gray-600 mb-8'>
+				<div className='text-gray-600 mb-8'>
 					<PortableText blocks={props.text} />
-				</p>
+				</div>
 			</div>
 			{img && <div className={'w-full ' + sizeClass}>{img}</div>}
 		</div>
@@ -51,9 +51,9 @@ const InfoRowFlipped = (props) => {
 				<h3 className='text-3xl text-gray-800 font-bold leading-none mb-3'>
 					{props.title}
 				</h3>
-				<p className='text-gray-600 mb-8'>
+				<div className='text-gray-600 mb-8'>
 					<PortableText blocks={props.text} />
-				</p>
+				</div>
 			</div>
 		</div>
 	);
@@ -71,7 +71,7 @@ const InfoRows = (props) => {
 		});
 
 	return (
-		<section className='bg-white border-b py-8'>
+		<section id={props.anchor || ''} className='bg-white border-b py-8'>
 			<div className='container max-w-5xl mx-auto m-8'>
 				<h1 className='w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800'>
 					{props.title}

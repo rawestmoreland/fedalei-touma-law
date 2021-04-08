@@ -1,4 +1,5 @@
 import { Link } from 'gatsby';
+import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import React, { useState } from 'react';
 
 const Header = (props) => {
@@ -6,7 +7,7 @@ const Header = (props) => {
 	const [isExpanded, toggleExpansion] = useState(false);
 
 	return (
-		<header className='bg-transparent'>
+		<header id='top' className='bg-white'>
 			<div className='flex flex-wrap items-center justify-between p-4 md:p-8'>
 				<Link to='/'>
 					<h1 className='flex items-center text-blueGrey-800 no-underline'>
@@ -35,15 +36,24 @@ const Header = (props) => {
 						isExpanded ? `block` : `hidden`
 					} md:block md:items-center w-full md:w-auto`}
 				>
-					{(navMenuItems || []).map((link) => (
-						<Link
-							className='block mt-4 text-blueGrey-800 no-underline md:inline-block md:mt-0 md:ml-6'
-							key={link.title}
-							to={link.route}
-						>
-							{link.title}
-						</Link>
-					))}
+					{(navMenuItems || []).map((link) =>
+						link.anchor ? (
+							<AnchorLink
+								key={link.title}
+								to={`${link.route || ''}${link.anchor}`}
+								title={link.title}
+								className='stripped block mt-4 text-blueGrey-800 no-underline md:inline-block md:mt-0 md:ml-6'
+							/>
+						) : (
+							<Link
+								className='block mt-4 text-blueGrey-800 no-underline md:inline-block md:mt-0 md:ml-6'
+								key={link.title}
+								to={link.route}
+							>
+								{link.title}
+							</Link>
+						)
+					)}
 				</nav>
 			</div>
 		</header>

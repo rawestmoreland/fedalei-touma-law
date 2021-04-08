@@ -27,8 +27,6 @@ function SEO({ description, lang, meta, keywords, title, image }) {
 
 				const pageTitle = title || siteTitle;
 
-				console.log(metaImage);
-
 				return (
 					<Helmet
 						htmlAttributes={{

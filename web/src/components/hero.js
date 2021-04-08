@@ -33,9 +33,15 @@ const maybeImage = (illustration) => {
 function Hero(props) {
 	const img = maybeImage(props.illustration);
 	return (
-		<div className='relative w-screen mx-auto flex flex-wrap flex-col lg:flex-row items-start'>
+		<div
+			id={props.anchor || ''}
+			className='relative w-screen mx-auto flex flex-wrap flex-col lg:flex-row items-start'
+		>
 			<div className='relative bg-white'>{img}</div>
-			<div className='md:absolute md:top-0 md:left-0 flex flex-col p-4 w-full mx-auto xl:mt-5 rounded-md justify-between items-center z-50'>
+			<div
+				id={props.anchor || ''}
+				className='md:absolute md:top-0 md:left-0 flex flex-col p-4 w-full mx-auto xl:mt-5 rounded-md justify-between items-center z-45'
+			>
 				<h1 className='text-blueGrey-800 text-5xl xl:text-6xl font-bold leading-tight tracking-wide text-center'>
 					{props.heading}
 				</h1>
