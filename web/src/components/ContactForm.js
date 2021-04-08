@@ -31,7 +31,7 @@ const ContactForm = (props) => {
 		fetch(`/`, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-			body: encode({ 'form-name': 'contact-form', ...formData }),
+			body: encode({ 'form-name': 'Contact TF Law', ...formData }),
 		})
 			.then((response) => {
 				navigate('/#top');
@@ -70,7 +70,7 @@ const ContactForm = (props) => {
 					<input
 						type='hidden'
 						name='subject'
-						value={`New website form submission from ${watchFirstname} ${watchLastname}`}
+						value={`New website form submission`}
 						{...register('subject')}
 					/>
 					<div className='flex flex-col md:flex-row justify-between w-full'>
