@@ -1,6 +1,6 @@
 import React from 'react';
 import { navigate } from 'gatsby';
-import { useForm, useWatch } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
 const ContactForm = (props) => {
 	const {
@@ -8,14 +8,8 @@ const ContactForm = (props) => {
 		handleSubmit,
 		formState: { errors },
 		reset,
-		control,
+		watch,
 	} = useForm();
-
-	const firstname = useWatch({
-		control,
-		name: 'firstname', // without supply name will watch the entire form, or ['firstName', 'lastName'] to watch both
-		defaultValue: '', // default value before the render
-	});
 
 	// Transforms the form data from the React Hook Form output to a format Netlify can read
 	const encode = (data) => {
@@ -29,6 +23,9 @@ const ContactForm = (props) => {
 			.join('&');
 	};
 
+	const watchFirstname = watch('firstname', props.firstname);
+	const watchLastname = watch('lastname', props.lastname);
+
 	// Handles the post process to Netlify so we can access their serverless functions
 	const handlePost = (formData, event) => {
 		fetch(`/`, {
@@ -37,7 +34,7 @@ const ContactForm = (props) => {
 			body: encode({ 'form-name': 'contact-form', ...formData }),
 		})
 			.then((response) => {
-				navigate('/');
+				navigate('/#top');
 				reset();
 				console.log(response);
 			})
@@ -53,7 +50,7 @@ const ContactForm = (props) => {
 				<form
 					className='flex flex-col items-center'
 					onSubmit={handleSubmit(handlePost)}
-					name='contact-form'
+					name='Contact TF Law'
 					method='POST'
 					action='/success/'
 					data-netlify='true'
@@ -73,7 +70,7 @@ const ContactForm = (props) => {
 					<input
 						type='hidden'
 						name='subject'
-						value={`New website form submission from ${firstname}`}
+						value={`New website form submission from ${watchFirstname} ${watchLastname}`}
 						{...register('subject')}
 					/>
 					<div className='flex flex-col md:flex-row justify-between w-full'>
