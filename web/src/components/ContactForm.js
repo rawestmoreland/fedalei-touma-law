@@ -36,10 +36,9 @@ const ContactForm = (props) => {
 			.then((response) => {
 				navigate('/#top');
 				reset();
-				console.log(response);
 			})
 			.catch((error) => {
-				console.log(error);
+				console.warn(error);
 			});
 		event.preventDefault();
 	};
@@ -70,7 +69,7 @@ const ContactForm = (props) => {
 					<input
 						type='hidden'
 						name='subject'
-						value={`New website form submission from ${watchFirstname} ${watchLastname}`}
+						value={`New website form submission`}
 						{...register('subject')}
 					/>
 					<div className='flex flex-col md:flex-row justify-between w-full'>
