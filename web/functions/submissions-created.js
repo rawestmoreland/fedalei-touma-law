@@ -18,7 +18,8 @@ exports.handler = async function (event, context, callback) {
 	if (isContactForm) {
 		const contact = {
 			_type: 'contact',
-			name: payload.data.name,
+			firstname: payload.data.firstname,
+			lastname: payload.data.lastname,
 			email: payload.data.email,
 			message: payload.data.message,
 		};
