@@ -70,7 +70,7 @@ const ContactForm = (props) => {
 					<input
 						type='hidden'
 						name='subject'
-						value={`New website form submission`}
+						value={`New website form submission from ${watchFirstname} ${watchLastname}`}
 						{...register('subject')}
 					/>
 					<div className='flex flex-col md:flex-row justify-between w-full'>
