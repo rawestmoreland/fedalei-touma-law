@@ -8,7 +8,6 @@ const ContactForm = (props) => {
 		handleSubmit,
 		formState: { errors },
 		reset,
-		watch,
 	} = useForm();
 
 	// Transforms the form data from the React Hook Form output to a format Netlify can read
@@ -23,9 +22,6 @@ const ContactForm = (props) => {
 			.join('&');
 	};
 
-	const watchFirstname = watch('firstname', props.firstname);
-	const watchLastname = watch('lastname', props.lastname);
-
 	// Handles the post process to Netlify so we can access their serverless functions
 	const handlePost = (formData, event) => {
 		fetch(`/`, {
@@ -36,6 +32,7 @@ const ContactForm = (props) => {
 			.then((response) => {
 				navigate('/#top');
 				reset();
+				console.log(response);
 			})
 			.catch((error) => {
 				console.warn(error);
