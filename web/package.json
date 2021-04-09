@@ -1,8 +1,8 @@
 {
 	"name": "gatsby-starter-tailwind",
-	"description": "Gatsby starter styled with Tailwind",
-	"version": "5.0.0",
-	"author": "Taylor Bryant <taylor@bryant.io>",
+	"description": "Gatbsy Frontend for Touma & Fedalei LLP",
+	"version": "1.0.0",
+	"author": "Richard A Westmoreland https://richardawestmoreland.com",
 	"dependencies": {
 		"gatsby": "2.25.1",
 		"gatsby-background-image": "^1.5.0",
@@ -16,6 +16,7 @@
 		"gatsby-plugin-react-helmet": "3.7.0",
 		"gatsby-plugin-sharp": "2.10.1",
 		"gbimage-bridge": "^0.1.2",
+		"netlify-lambda": "^2.0.3",
 		"prop-types": "15.7.2",
 		"react": "17.0.1",
 		"react-dom": "17.0.1",
@@ -43,6 +44,8 @@
 		"start": "npm run develop",
 		"serve": "gatsby serve",
 		"clean": "gatsby clean",
+		"lambda-serve": "netlify-lambda serve functions",
+		"lambda-build": "netlify-lambda build functions",
 		"test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
 	},
 	"devDependencies": {
@@ -65,11 +68,6 @@
 		"prettier": "2.2.1",
 		"tailwindcss": "2.0.3"
 	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/taylorbryant/gatsby-starter-tailwind"
-	},
-	"bugs": {
-		"url": "https://github.com/taylorbryant/gatsby-starter-tailwind/issues"
-	}
+	"repository": {},
+	"bugs": {}
 }
