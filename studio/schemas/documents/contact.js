@@ -5,16 +5,6 @@ export default {
   readOnly: true,
   fields: [
     {
-      name: 'title',
-      type: 'string',
-      title: 'Title',
-    },
-    {
-      name: 'created_at',
-      type: 'datetime',
-      title: 'Created at',
-    },
-    {
       name: 'email',
       type: 'email',
       title: 'Email',
