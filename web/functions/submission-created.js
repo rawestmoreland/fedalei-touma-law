@@ -1,34 +1,16 @@
 const sanityClient = require('@sanity/client');
 const client = sanityClient({
-	projectId: process.env.GATSBY_SANITY_PROJECT_ID,
-	dataset: process.env.GATSBY_SANITY_PROJECT_DATASET,
+	projectId: process,env.GATSBY_SANITY_PROJECT_ID,
+	dataset: process.env.GATSBY_SANITY_DATASET,
 	token: process.env.GATSBY_SANITY_TOKEN,
-	useCDN: false,
 });
 
 exports.handler = async function (event, context, callback) {
-	// Pulling out the payload from the body
 	const { payload } = JSON.parse(event.body);
-
-	// Checking which form has been submitted
-	const isContactForm =
-		payload.data.formId === 'Touma & Fedalei Contact Form';
-
-	// Build the document JSON and submit it to SANITY
-	if (isContactForm) {
-		const contact = {
-			_type: 'contact',
-			firstname: payload.data.firstname,
-			lastname: payload.data.lastname,
-			email: payload.data.email,
-			message: payload.data.message,
-		};
-
-		const result = await client
-			.create(contact)
-			.catch((err) => console.log(err));
-	}
-
+	const result = await client.create({
+		_type: 'contact',
+		...payload,
+	});
 	callback(null, {
 		statusCode: 200,
 	});
