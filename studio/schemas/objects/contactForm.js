@@ -4,6 +4,7 @@ export default {
   title: 'Contact Form',
   fields: [
     { name: 'title', type: 'string' },
+    { name: 'phone', type: 'string' },
     { name: 'anchor', type: 'string', description: 'Example: contact' },
   ],
   preview: {

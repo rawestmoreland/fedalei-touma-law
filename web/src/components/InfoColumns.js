@@ -51,7 +51,6 @@ const InfoColumnText = (props) => {
 };
 
 const InfoColumns = (props) => {
-	console.log(props);
 	const width = props.columns ? Math.round(props.columns / 100) : 0;
 	const contentRows = (props.columns || [])
 		.filter((r) => !r.disabled)

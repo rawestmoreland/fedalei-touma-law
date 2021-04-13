@@ -35,7 +35,7 @@ function Hero(props) {
 	return (
 		<div
 			id={props.anchor || ''}
-			className='relative w-screen mx-auto flex flex-wrap flex-col lg:flex-row items-start'
+			className='border-b relative w-screen mx-auto flex flex-wrap flex-col lg:flex-row items-start pb-6 md:pb-0'
 		>
 			<div className='relative bg-white'>{img}</div>
 			<div
@@ -51,7 +51,7 @@ function Hero(props) {
 				{props.cta && props.cta.title && (
 					<CTALink
 						{...props.cta}
-						buttonActionClass='mx-auto ml-4 hover:underline bg-white text-blueGray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg'
+						buttonActionClass='mx-auto hover:underline bg-white text-blueGray-800 font-bold rounded-full md:my-2 py-4 px-8 shadow-lg'
 						linkActionClass='text-xl'
 					/>
 				)}

@@ -14,9 +14,9 @@ const fullConfig = resolveConfig(tailwindConfig);
 
 module.exports = {
 	siteMetadata: {
-		title: `Gatsby Starter Tailwind`,
-		description: `Gatsby starter styled with Tailwind`,
-		author: `@taylorbryant`,
+		title: `Touma & Fedalei LLP`,
+		description: `Touma and Fedalei: Criminal Defense in South Carolina`,
+		author: `Richard Westmoreland`,
 	},
 	plugins: [
 		`gatsby-plugin-eslint`,
@@ -25,8 +25,8 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
-				name: `gatsby-starter-tailwind`,
-				short_name: `starter`,
+				name: `gatsby-tflaw`,
+				short_name: `tflaw`,
 				start_url: `/`,
 				background_color: fullConfig.theme.colors.white,
 				theme_color: fullConfig.theme.colors.green['500'],

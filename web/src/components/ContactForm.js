@@ -70,8 +70,15 @@ const ContactForm = (props) => {
 					{props.title}
 				</h1>
 				<div className='w-full mb-4'>
-					<div className='h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t'></div>
+					<div className='h-1 bg-mine-shaft mx-auto w-64 my-0 py-0'></div>
 				</div>
+				{props.phone && (
+					<h2 className='w-full my-2 text-5xl font-bold text-center text-gray-800 mb-10'>
+						<a href={`tel:+1${props.phone.replace(/[^\d+]/g, '')}`}>
+							{props.phone}
+						</a>
+					</h2>
+				)}
 				<form
 					className='flex flex-col items-center'
 					onSubmit={handleSubmit(handlePost)}
