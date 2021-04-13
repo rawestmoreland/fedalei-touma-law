@@ -56,6 +56,14 @@ module.exports = {
 			},
 		},
 		{
+			resolve: 'gatsby-plugin-sanity-image',
+			options: {
+				// Sanity project info (required)
+				projectId: 'kjlvm6up',
+				dataset: 'production',
+			},
+		},
+		{
 			resolve: `gatsby-plugin-google-fonts`,
 			options: {
 				fonts: [

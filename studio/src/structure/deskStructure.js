@@ -26,7 +26,6 @@ export default () =>
         .schemaType('page')
         .icon(GoHome)
         .child(S.document().schemaType('page').documentId('frontpage').views([S.view.form()])),
-      landingPages,
       blog,
       ...S.documentTypeListItems().filter(hiddenDocTypes),
     ])

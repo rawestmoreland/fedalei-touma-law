@@ -4,6 +4,10 @@ export default {
   title: 'Hero',
   fields: [
     {
+      type: 'boolean',
+      name: 'disabled',
+    },
+    {
       name: 'label',
       type: 'string',
     },

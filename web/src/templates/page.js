@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 
 import Hero from '../components/hero';
 import InfoRows from '../components/InfoRows';
+import InfoColumns from '../components/InfoColumns';
 import ContactForm from '../components/ContactForm';
 import { BsChevronDoubleUp as UpChevron } from 'react-icons/bs';
 
@@ -65,6 +66,9 @@ const Page = (props) => {
 					break;
 				case 'infoRows':
 					el = <InfoRows key={c._key} {...c} />;
+					break;
+				case 'infoColumns':
+					el = <InfoColumns key={c._key} {...c} />;
 					break;
 				case 'contactForm':
 					el = <ContactForm key={c._key} {...c} />;

@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { navigate } from 'gatsby';
 import { useForm } from 'react-hook-form';
 
 const ContactForm = (props) => {
+	const [phone, setPhone] = useState('');
+
 	const {
 		register,
 		handleSubmit,
@@ -20,6 +22,27 @@ const ContactForm = (props) => {
 					encodeURIComponent(data[key])
 			)
 			.join('&');
+	};
+
+	// Format the phone number as it's entered
+	const normalizeInput = (value, previousValue) => {
+		if (!value) return value;
+		const currentValue = value.replace(/[^\d]/g, '');
+		const cvLength = currentValue.length;
+
+		if (!previousValue || value.length > previousValue.length) {
+			if (cvLength < 4) return currentValue;
+			if (cvLength < 7)
+				return `(${currentValue.slice(0, 3)}) ${currentValue.slice(3)}`;
+			return `(${currentValue.slice(0, 3)}) ${currentValue.slice(
+				3,
+				6
+			)}-${currentValue.slice(6, 10)}`;
+		}
+	};
+
+	const handlePhoneChange = (e) => {
+		setPhone(normalizeInput(e.target.value));
 	};
 
 	// Handles the post process to Netlify so we can access their serverless functions
@@ -43,6 +66,12 @@ const ContactForm = (props) => {
 	return (
 		<section id={props.anchor || ''} className='bg-white border-b py-8'>
 			<div className='container max-w-lg mx-auto m-8 p-3 lg:p-0'>
+				<h1 className='w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800'>
+					{props.title}
+				</h1>
+				<div className='w-full mb-4'>
+					<div className='h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t'></div>
+				</div>
 				<form
 					className='flex flex-col items-center'
 					onSubmit={handleSubmit(handlePost)}
@@ -116,6 +145,17 @@ const ContactForm = (props) => {
 						</label>
 					</div>
 					<div className='w-full'>
+						<label htmlFor='phone'>
+							<p>Phone</p>
+							<input
+								className='border border-gray-400 mb-4 h-12 w-full px-2'
+								name='phone'
+								value={phone}
+								onChange={handlePhoneChange}
+							/>
+						</label>
+					</div>
+					<div className='w-full'>
 						<label htmlFor='message'>
 							<p>Message</p>
 							<textarea
@@ -145,7 +185,7 @@ const ContactForm = (props) => {
 					<div>
 						<button
 							type='submit'
-							className='border border-gray-400 p-2'
+							className='border border-gray-400 p-2 rounded'
 						>
 							Submit
 						</button>

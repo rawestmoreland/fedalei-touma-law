@@ -21,7 +21,12 @@ export default {
       type: 'array',
       title: 'Page sections',
       description: 'Add, edit, and reorder sections',
-      of: [{ type: 'hero' }, { type: 'infoRows' }, { type: 'contactForm' }],
+      of: [
+        { type: 'hero' },
+        { type: 'infoRows' },
+        { type: 'infoColumns' },
+        { type: 'contactForm' },
+      ],
     },
   ],
 }

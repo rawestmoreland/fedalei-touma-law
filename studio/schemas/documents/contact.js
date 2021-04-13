@@ -1,14 +1,9 @@
 export default {
   name: 'contact',
   type: 'document',
-  title: 'Form submission',
+  title: 'Form submissions',
   readOnly: true,
   fields: [
-    {
-      name: 'email',
-      type: 'email',
-      title: 'Email',
-    },
     {
       name: 'firstname',
       type: 'string',
@@ -18,6 +13,16 @@ export default {
       name: 'lastname',
       type: 'string',
       title: 'Last Name',
+    },
+    {
+      name: 'email',
+      type: 'email',
+      title: 'Email',
+    },
+    {
+      name: 'phone',
+      type: 'string',
+      title: 'Phone Number',
     },
     {
       name: 'message',

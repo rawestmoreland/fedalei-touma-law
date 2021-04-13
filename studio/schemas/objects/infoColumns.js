@@ -1,7 +1,7 @@
 export default {
   type: 'object',
-  name: 'infoRows',
-  title: 'Info rows',
+  name: 'infoColumns',
+  title: 'Info columns',
   fields: [
     {
       type: 'string',
@@ -10,12 +10,12 @@ export default {
     {
       type: 'string',
       name: 'anchor',
-      description: 'Example: whyus',
+      description: 'Example: aboutus',
     },
     {
       type: 'array',
-      name: 'rows',
-      of: [{ type: 'textWithIllustration' }],
+      name: 'columns',
+      of: [{ type: 'illustration', title: 'Image' }, { type: 'simpleText' }],
     },
   ],
   preview: {
@@ -25,7 +25,7 @@ export default {
     },
     prepare({ title, disabled }) {
       return {
-        title: `Info Rows: ${disabled ? 'DISABLED' : title}`,
+        title: `Info Columns: ${disabled ? 'DISABLED' : title}`,
       }
     },
   },

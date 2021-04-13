@@ -17,8 +17,8 @@ import mainImage from './objects/mainImage'
 import openGraph from './objects/openGraph'
 import page from './documents/page'
 import navMenu from './documents/navMenu'
-import route from './documents/route'
 import hero from './objects/hero'
+import route from './documents/route'
 import illustration from './objects/illustration'
 import bioPortableText from './objects/bioPortableText'
 import siteSettings from './documents/siteSettings'
@@ -26,6 +26,8 @@ import textWithIllustration from './objects/textWithIllustration'
 import infoRows from './objects/infoRows'
 import contactForm from './objects/contactForm'
 import contact from './documents/contact'
+import infoColumns from './objects/infoColumns'
+import simpleText from './objects/simpleText'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -42,7 +44,6 @@ export default createSchema({
     bioPortableText,
     category,
     cta,
-    hero,
     link,
     illustration,
     page,
@@ -56,8 +57,9 @@ export default createSchema({
     textWithIllustration,
     contactForm,
     contact,
-    // When added to this list, object types can be used as
-    // { type: 'typename' } in other document schemas
+    hero,
     blockContent,
+    infoColumns,
+    simpleText,
   ]),
 })
