@@ -26,12 +26,7 @@ export default () =>
         .title('Frontpage')
         .schemaType('page')
         .icon(GoHome)
-        .child(
-          S.document()
-            .schemaType('page')
-            .documentId('frontpage')
-            .views([S.view.form(), PreviewIFrame()])
-        ),
+        .child(S.document().schemaType('page').documentId('frontpage').views([S.view.form()])),
       blog,
       landingPages,
       ...S.documentTypeListItems().filter(hiddenDocTypes),
