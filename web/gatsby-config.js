@@ -22,6 +22,7 @@ module.exports = {
 		`gatsby-plugin-eslint`,
 		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-anchor-links`,
+		`gatsby-plugin-no-index`,
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {

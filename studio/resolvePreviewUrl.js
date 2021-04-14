@@ -3,8 +3,8 @@ const env = process.env.NODE_ENV || 'development'
 export default function resolvePreviewUrl(document) {
   const baseUrl =
     env === 'development'
-      ? 'http://localhost:8000'
-      : 'https://https://sanity-fedalei-touma-web.netlify.app/'
+      ? 'http://167.99.225.209:8000/'
+      : 'https://sanity-fedalei-touma-web.netlify.app/'
   switch (document._type) {
     case 'route':
       if (!document.slug || !document.slug.current) {
