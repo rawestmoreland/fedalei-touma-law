@@ -1,20 +1,46 @@
 import { Link } from 'gatsby';
 import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import React, { useState } from 'react';
+import { buildImageObj } from '../lib/helpers';
+import { imageUrlFor } from '../lib/image-url';
+
+const maybeImage = (logo) => {
+	let img = null;
+	if (logo && logo.image && logo.image.asset) {
+		img = (
+			<img
+				className='max-h-10 md:max-h-24'
+				src={imageUrlFor(buildImageObj(logo.image)).url()}
+				alt={logo.image.alt}
+			/>
+		);
+	}
+	return img;
+};
+
+const Brand = (props) => {
+	const img = maybeImage(props.navLogo);
+
+	return img && props.replaceTitle ? (
+		img
+	) : (
+		<h1>
+			<span className='text-xl font-bold tracking-tight'>
+				{props.siteTitle}
+			</span>
+		</h1>
+	);
+};
 
 const Header = (props) => {
-	const { navMenuItems, siteTitle } = props;
+	const { navMenuItems } = props;
 	const [isExpanded, toggleExpansion] = useState(false);
 
 	return (
 		<header id='top' className='bg-white'>
 			<div className='flex flex-wrap items-center justify-between p-4 md:p-8'>
 				<Link to='/'>
-					<h1 className='flex items-center text-blueGrey-800 no-underline'>
-						<span className='text-xl font-bold tracking-tight'>
-							{siteTitle}
-						</span>
-					</h1>
+					<Brand {...props} />
 				</Link>
 
 				<button
@@ -34,7 +60,7 @@ const Header = (props) => {
 				<nav
 					className={`${
 						isExpanded ? `block` : `hidden`
-					} md:block md:items-center w-full md:w-auto`}
+					} md:text-xl md:block md:items-center w-full md:w-auto`}
 				>
 					{(navMenuItems || []).map((link) =>
 						link.anchor ? (

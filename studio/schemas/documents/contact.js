@@ -1,7 +1,10 @@
+import { AiOutlineMail as email } from 'react-icons/ai'
+
 export default {
   name: 'contact',
   type: 'document',
   title: 'Form submissions',
+  icon: email,
   readOnly: true,
   fields: [
     {
@@ -30,4 +33,17 @@ export default {
       title: 'Message',
     },
   ],
+  preview: {
+    select: {
+      firstname: `firstname`,
+      lastname: `lastname`,
+      email: 'email',
+    },
+    prepare({ firstname, lastname, email }) {
+      return {
+        title: `${lastname}, ${firstname}`,
+        subtitle: email,
+      }
+    },
+  },
 }

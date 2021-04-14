@@ -56,6 +56,8 @@ const Page = (props) => {
 
 	const page = data.page || data.route.page;
 
+	console.log(page);
+
 	const content = (page._rawContent || [])
 		.filter((c) => !c.disabled)
 		.map((c) => {
@@ -80,10 +82,16 @@ const Page = (props) => {
 		});
 
 	const menuItems = page.navMenu && (page.navMenu.items || []);
+	const navLogo = page.navMenu && (page.navMenu.logo || {});
+	const replaceTitle = page.navMenu && (page.navMenu.replaceTitle || false);
 	const pageTitle = data.route && !data.route.useSiteTitle && page.title;
 
 	return (
-		<Layout navMenuItems={menuItems}>
+		<Layout
+			navMenuItems={menuItems}
+			navLogo={navLogo}
+			replaceTitle={replaceTitle}
+		>
 			<SEO
 				title={pageTitle}
 				description={site.description}

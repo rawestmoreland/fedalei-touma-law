@@ -18,5 +18,11 @@ export const NavMenu = graphql`
 				}
 			}
 		}
+		logo {
+			image {
+				...SanityImage
+			}
+		}
+		replaceTitle
 	}
 `;
