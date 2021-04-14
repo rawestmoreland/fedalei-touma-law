@@ -2,8 +2,6 @@ import React from 'react'
 import S from '@sanity/desk-tool/structure-builder'
 import resolveUrl from '../../resolvePreviewUrl'
 
-const env = process.env.NODE_ENV || 'development'
-
 const PreviewIFrame = () =>
   S.view
     .component(({ document }) => {
@@ -14,21 +12,6 @@ const PreviewIFrame = () =>
       const url = resolveUrl(displayed)
       return (
         <React.Fragment>
-          {env !== 'development' && (
-            <div style={{ padding: '0 0.5em' }}>
-              <p>
-                This is your{' '}
-                <a
-                  href="https://sanity-fedalei-touma-web.netlify.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  production site on Netlify
-                </a>
-                . <a href="/dashboard">Trigger a deploy</a> to see published changes.
-              </p>
-            </div>
-          )}
           <iframe
             style={{
               width: '100%',
