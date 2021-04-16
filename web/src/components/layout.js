@@ -18,7 +18,10 @@ function Layout(props) {
 			<main className='flex-1 w-full'>{children}</main>
 
 			<footer className='w-full bg-transparent'>
-				<nav className='flex justify-between p-4 mx-auto text-sm md:p-8'>
+				<nav className='flex flex-col items-center lg:flex-row lg:justify-between p-4 mx-auto text-xs lg:text-sm md:p-8'>
+					<p className='text-blueGrey-800'>
+						&copy; Touma & Fedalei LLP 2021
+					</p>
 					<p className='text-blueGrey-800'>
 						Created by{` `}
 						<a
@@ -29,10 +32,6 @@ function Layout(props) {
 						>
 							Richard Westmoreland
 						</a>
-					</p>
-
-					<p className='text-blueGrey-800'>
-						&copy; Touma & Fedalei LLP 2021
 					</p>
 				</nav>
 			</footer>

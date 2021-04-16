@@ -14,7 +14,9 @@ export default {
     {
       type: 'boolean',
       name: 'replaceTitle',
-      title: 'Replace Title With Logo In Navbar',
+      title: 'Replace title with logo in nav bar',
+      description:
+        'If this is selected, your logo will appear in you nav bar instead of a text version of your site title',
     },
     {
       type: 'array',

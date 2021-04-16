@@ -68,7 +68,9 @@ module.exports = {
 			resolve: `gatsby-plugin-google-fonts`,
 			options: {
 				fonts: [
-					`Cinzel`, // you can also specify font weights and styles
+					`Cinzel\:400,500,600,700,800,900`,
+					`Roboto\:200`,
+					`Poppins\:200`,
 				],
 				display: 'swap',
 			},

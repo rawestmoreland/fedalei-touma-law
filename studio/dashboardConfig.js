@@ -7,6 +7,9 @@ export default {
       name: 'project-users',
     },
     {
+      name: 'cats',
+    },
+    {
       name: 'netlify',
       options: {
         title: 'My Netlify deploys',

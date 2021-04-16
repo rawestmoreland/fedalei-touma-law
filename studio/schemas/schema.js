@@ -21,6 +21,8 @@ import hero from './objects/hero'
 import route from './documents/route'
 import illustration from './objects/illustration'
 import bioPortableText from './objects/bioPortableText'
+import excerptPortableText from './objects/excerptPortableText'
+import bodyPortableText from './objects/bodyPortableText'
 import siteSettings from './documents/siteSettings'
 import textWithIllustration from './objects/textWithIllustration'
 import infoRows from './objects/infoRows'
@@ -42,6 +44,8 @@ export default createSchema({
     post,
     author,
     bioPortableText,
+    bodyPortableText,
+    excerptPortableText,
     category,
     cta,
     link,

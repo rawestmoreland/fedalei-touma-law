@@ -1,28 +1,20 @@
 import React from 'react';
 import PortableText from './portableText';
-import clientConfig from '../../client-config';
 import CTALink from './CTALink';
-
-import { getFluidGatsbyImage } from 'gatsby-source-sanity';
+import { buildImageObj } from '../lib/helpers';
+import { imageUrlFor } from '../lib/image-url';
 
 const maybeImage = (illustration) => {
 	let img = null;
 	if (
 		illustration &&
+		illustration.disabled !== true &&
 		illustration.image &&
-		illustration.image.asset &&
-		!illustration.disabled
+		illustration.image.asset
 	) {
-		const fluidProps = getFluidGatsbyImage(
-			illustration.image.asset._id,
-			{ maxWidth: 960 },
-			clientConfig.sanity
-		);
-
 		img = (
 			<img
-				className='w-screen'
-				src={fluidProps.src}
+				src={imageUrlFor(buildImageObj(illustration.image)).url()}
 				alt={illustration.image.alt}
 			/>
 		);

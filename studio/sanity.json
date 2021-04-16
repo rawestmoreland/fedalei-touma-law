@@ -15,11 +15,14 @@
     "@sanity/desk-tool",
     "@sanity/dashboard",
     "dashboard-widget-netlify",
-    "@sanity/production-preview"
+    "@sanity/production-preview",
+    "cats"
   ],
   "env": {
     "development": {
-      "plugins": ["@sanity/vision"]
+      "plugins": [
+        "@sanity/vision"
+      ]
     }
   },
   "parts": [

@@ -25,7 +25,7 @@ const Brand = (props) => {
 		img
 	) : (
 		<h1>
-			<span className='text-xl font-bold tracking-tight'>
+			<span className='text-xl font-medium tracking-tight'>
 				{props.siteTitle}
 			</span>
 		</h1>

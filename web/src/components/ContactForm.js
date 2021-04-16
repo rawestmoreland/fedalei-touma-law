@@ -105,7 +105,7 @@ const ContactForm = (props) => {
 						value={`New website form submission`}
 						{...register('subject')}
 					/>
-					<div className='flex flex-col md:flex-row justify-between w-full'>
+					<div className='flex flex-col justify-between w-full'>
 						<label htmlFor='firstname'>
 							<p>First Name</p>
 							{errors.firstname && (

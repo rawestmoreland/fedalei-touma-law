@@ -1,65 +1,115 @@
 export default {
   name: 'post',
-  title: 'Post',
   type: 'document',
+  title: 'Blog Post',
   fields: [
     {
       name: 'title',
-      title: 'Title',
       type: 'string',
+      title: 'Title',
+      description: 'Titles should be catchy, descriptive, and not too long',
     },
     {
       name: 'slug',
-      title: 'Slug',
       type: 'slug',
+      title: 'Slug',
+      description: 'Some frontends will require a slug to be set to be able to show the post',
       options: {
         source: 'title',
         maxLength: 96,
       },
     },
     {
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      to: {type: 'author'},
+      name: 'publishedAt',
+      type: 'datetime',
+      title: 'Published at',
+      description: 'This can be used to schedule post for publishing',
     },
     {
       name: 'mainImage',
+      type: 'mainImage',
       title: 'Main image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
+    },
+    {
+      name: 'excerpt',
+      type: 'excerptPortableText',
+      title: 'Excerpt',
+      description:
+        'This ends up on summary pages, on Google, when people share your post in social media.',
+    },
+    {
+      name: 'authors',
+      title: 'Authors',
+      type: 'array',
+      of: [
+        {
+          type: 'authorReference',
+        },
+      ],
     },
     {
       name: 'categories',
-      title: 'Categories',
       type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}],
-    },
-    {
-      name: 'publishedAt',
-      title: 'Published at',
-      type: 'datetime',
+      title: 'Categories',
+      of: [
+        {
+          type: 'reference',
+          to: {
+            type: 'category',
+          },
+        },
+      ],
     },
     {
       name: 'body',
+      type: 'bodyPortableText',
       title: 'Body',
-      type: 'blockContent',
     },
   ],
-
+  orderings: [
+    {
+      name: 'publishingDateAsc',
+      title: 'Publishing date new–>old',
+      by: [
+        {
+          field: 'publishedAt',
+          direction: 'asc',
+        },
+        {
+          field: 'title',
+          direction: 'asc',
+        },
+      ],
+    },
+    {
+      name: 'publishingDateDesc',
+      title: 'Publishing date old->new',
+      by: [
+        {
+          field: 'publishedAt',
+          direction: 'desc',
+        },
+        {
+          field: 'title',
+          direction: 'asc',
+        },
+      ],
+    },
+  ],
   preview: {
     select: {
       title: 'title',
-      author: 'author.name',
+      publishedAt: 'publishedAt',
+      slug: 'slug',
       media: 'mainImage',
     },
-    prepare(selection) {
-      const {author} = selection
-      return Object.assign({}, selection, {
-        subtitle: author && `by ${author}`,
-      })
+    prepare({ title = 'No title', publishedAt, slug = {}, media }) {
+      const path = `/blog/${slug.current}`
+      return {
+        title,
+        media,
+        subtitle: publishedAt ? path : 'Missing publishing date',
+      }
     },
   },
 }

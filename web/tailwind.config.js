@@ -15,6 +15,8 @@ module.exports = {
 				display: ['Oswald'],
 				body: ['Open Sans'],
 				cinzel: ['Cinzel', 'ui-serif', 'Georgia'],
+				roboto: ['Roboto', 'ui-sans-serif'],
+				poppins: ['Poppins', 'open-sans'],
 			},
 			backgroundImage: (theme) => ({
 				'main-hero': "url('/img/hero-pattern.svg')",
