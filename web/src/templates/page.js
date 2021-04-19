@@ -54,6 +54,8 @@ const Page = (props) => {
 		);
 	}
 
+	console.log(data);
+
 	const page = data.page || data.route.page;
 
 	const content = (page._rawContent || [])
@@ -79,7 +81,10 @@ const Page = (props) => {
 			return el;
 		});
 
-	const menuItems = page.navMenu && (page.navMenu.items || []);
+	console.log(page.navMenu);
+
+	const menuItems =
+		page.navMenu && (page.navMenu.items || []).filter((i) => !i.disabled);
 	const navLogo = page.navMenu && (page.navMenu.logo || {});
 	const replaceTitle = page.navMenu && (page.navMenu.replaceTitle || false);
 	const pageTitle = data.route && !data.route.useSiteTitle && page.title;

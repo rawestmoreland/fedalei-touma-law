@@ -20,7 +20,7 @@ export default {
       name: 'keywords',
       type: 'array',
       title: 'Keywords',
-      description: 'Add keywords that describes your blog.',
+      description: 'Add keywords that describes your site.',
       of: [{ type: 'string' }],
       options: {
         layout: 'tags',

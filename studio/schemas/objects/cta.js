@@ -11,6 +11,12 @@ export default {
   ],
   fields: [
     {
+      title: 'Disabled',
+      name: 'disabled',
+      type: 'boolean',
+      description: 'Turn this on if you want to hide this link / button.',
+    },
+    {
       title: 'Title',
       name: 'title',
       type: 'string',
