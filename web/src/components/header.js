@@ -10,7 +10,9 @@ const maybeImage = (logo) => {
 		img = (
 			<img
 				className='max-h-10 md:max-h-24'
-				src={imageUrlFor(buildImageObj(logo.image)).url()}
+				src={imageUrlFor(buildImageObj(logo.image))
+					.maxWidth(2000)
+					.url()}
 				alt={logo.image.alt}
 			/>
 		);

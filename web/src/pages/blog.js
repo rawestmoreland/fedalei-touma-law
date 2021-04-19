@@ -10,11 +10,15 @@ import GraphQLErrorList from '../components/graphql-error-list';
 import SEO from '../components/seo';
 import Layout from '../containers/layout';
 import Container from '../components/container';
+import { BsChevronDoubleUp as UpChevron } from 'react-icons/bs';
 
 export const query = graphql`
-	query IndexPageQuery {
+	query BlogPageQuery {
 		site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
 			title
+		}
+		navMenu: sanityNavigationMenu {
+			...NavMenu
 		}
 		posts: allSanityPost(
 			limit: 6
@@ -43,7 +47,7 @@ export const query = graphql`
 	}
 `;
 
-const IndexPage = (props) => {
+const BlogPage = (props) => {
 	const { data, errors } = props;
 
 	if (errors) {
@@ -55,6 +59,7 @@ const IndexPage = (props) => {
 	}
 
 	const site = (data || {}).site;
+	const navMenu = (data || {}).navMenu;
 	const postNodes = (data || {}).posts
 		? mapEdgesToNodes(data.posts)
 				.filter(filterOutDocsWithoutSlugs)
@@ -67,8 +72,17 @@ const IndexPage = (props) => {
 		);
 	}
 
+	const menuItems = navMenu && (navMenu.items || []);
+	const navLogo = navMenu && (navMenu.logo || {});
+	const replaceTitle = navMenu && (navMenu.replaceTitle || false);
+
 	return (
-		<Layout textWhite={false}>
+		<Layout
+			navMenuItems={menuItems}
+			navLogo={navLogo}
+			replaceTitle={replaceTitle}
+			textWhite={false}
+		>
 			<SEO
 				title={site.title || 'Missing title'}
 				description={site.description || 'Missing description'}
@@ -76,12 +90,21 @@ const IndexPage = (props) => {
 			/>
 			<Container>
 				<h1 hidden>Welcome to {site.title}</h1>
-				<div className=''>
+				<div id='top' className=''>
 					{postNodes && <BlogPostPreviewList nodes={postNodes} />}
 				</div>
+				<button
+					id='scroll-btn'
+					className='hidden fixed bottom-20 right-4 md:bottom-24 md:right-10 scroll-btn bg-white bg-opacity-80 p-1 rounded'
+					title='Top'
+					to='#top'
+				>
+					<UpChevron className='mx-auto' />
+					<span className='font-bold'>To Top</span>
+				</button>
 			</Container>
 		</Layout>
 	);
 };
 
-export default IndexPage;
+export default BlogPage;

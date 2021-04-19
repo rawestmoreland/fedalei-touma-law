@@ -5,9 +5,13 @@ import BlogPost from '../components/blog-post';
 import SEO from '../components/seo';
 import Layout from '../containers/layout';
 import { toPlainText } from '../lib/helpers';
+import { BsChevronDoubleUp as UpChevron } from 'react-icons/bs';
 
 export const query = graphql`
 	query BlogPostTemplateQuery($id: String!) {
+		navMenu: sanityNavigationMenu {
+			...NavMenu
+		}
 		post: sanityPost(id: { eq: $id }) {
 			id
 			publishedAt
@@ -59,8 +63,19 @@ export const query = graphql`
 const BlogPostTemplate = (props) => {
 	const { data, errors } = props;
 	const post = data && data.post;
+	const navMenu = (data || {}).navMenu;
+
+	const menuItems = navMenu && (navMenu.items || []);
+	const navLogo = navMenu && (navMenu.logo || {});
+	const replaceTitle = navMenu && (navMenu.replaceTitle || false);
+
 	return (
-		<Layout textWhite={true}>
+		<Layout
+			navMenuItems={menuItems}
+			navLogo={navLogo}
+			replaceTitle={replaceTitle}
+			textWhite={true}
+		>
 			{errors && <SEO title='GraphQL Error' />}
 			{post && (
 				<SEO
@@ -77,6 +92,15 @@ const BlogPostTemplate = (props) => {
 			)}
 
 			{post && <BlogPost {...post} />}
+			<button
+				id='scroll-btn'
+				className='hidden fixed bottom-20 right-4 md:bottom-24 md:right-10 scroll-btn bg-white bg-opacity-80 p-1 rounded'
+				title='Top'
+				to='#top'
+			>
+				<UpChevron className='mx-auto' />
+				<span className='font-bold'>To Top</span>
+			</button>
 		</Layout>
 	);
 };

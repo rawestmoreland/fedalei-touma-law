@@ -14,15 +14,17 @@ const fullConfig = resolveConfig(tailwindConfig);
 
 module.exports = {
 	siteMetadata: {
-		title: `Touma & Fedalei LLP`,
+		title: `Touma and Fedalei LLP`,
 		description: `Touma and Fedalei: Criminal Defense in South Carolina`,
 		author: `Richard Westmoreland`,
+		url: `https://tflawsc.com`,
 	},
 	plugins: [
 		`gatsby-plugin-eslint`,
 		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-anchor-links`,
 		`gatsby-plugin-no-index`,
+		`gatsby-plugin-sass`,
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {

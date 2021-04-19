@@ -34,10 +34,10 @@ function Hero(props) {
 				id={props.anchor || ''}
 				className='md:absolute md:top-0 md:left-0 flex flex-col p-4 w-full mx-auto xl:mt-5 rounded-md justify-between items-center z-45'
 			>
-				<h1 className='text-blueGrey-800 text-5xl xl:text-6xl font-bold leading-tight tracking-wide text-center'>
+				<h1 className='text-blueGrey-800 text-5xl xl:text-6xl font-medium leading-tight tracking-wide text-center'>
 					{props.heading}
 				</h1>
-				<div className='leading-normal text-2xl text-center mb-8'>
+				<div className='leading-normal text-2xl text-center font-normal mb-8'>
 					<PortableText blocks={props.tagline} />
 				</div>
 				{props.cta && props.cta.title && (
