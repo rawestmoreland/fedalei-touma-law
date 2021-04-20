@@ -5,11 +5,12 @@ import { Helmet } from 'react-helmet';
 import { imageUrlFor } from '../lib/image-url';
 import { buildImageObj } from '../lib/helpers';
 
-function SEO({ description, lang, meta, keywords, title, image }) {
+function SEO({ description, lang, meta, keywords, title }) {
 	return (
 		<StaticQuery
 			query={detailsQuery}
 			render={(data) => {
+				console.log(data);
 				const metaDescription =
 					description ||
 					(data.site &&
@@ -20,10 +21,11 @@ function SEO({ description, lang, meta, keywords, title, image }) {
 				const siteAuthor =
 					(data.site && data.site.author && data.site.author.name) ||
 					'';
-				const metaImage =
-					data.site.image && data.site.openGraph.image.asset
-						? imageUrlFor(buildImageObj(image)).width(1200).url()
-						: '';
+				const metaImage = data.site.openGraph
+					? imageUrlFor(buildImageObj(data.site.openGraph.image))
+							.width(1200)
+							.url()
+					: '';
 
 				const pageTitle = title || siteTitle;
 
@@ -45,7 +47,10 @@ function SEO({ description, lang, meta, keywords, title, image }) {
 							},
 							{
 								property: `og:title`,
-								content: title,
+								content:
+									pageTitle === siteTitle
+										? siteTitle
+										: `%s | ${siteTitle}`,
 							},
 							{
 								property: `og:description`,
@@ -69,7 +74,7 @@ function SEO({ description, lang, meta, keywords, title, image }) {
 							},
 							{
 								name: `twitter:title`,
-								content: title,
+								content: pageTitle,
 							},
 							{
 								name: `twitter:description`,

@@ -21,6 +21,7 @@ export const SanityImage = graphql`
 		}
 		asset {
 			_id
+			url
 			metadata {
 				lqip
 				dimensions {

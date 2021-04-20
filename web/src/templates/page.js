@@ -54,8 +54,6 @@ const Page = (props) => {
 		);
 	}
 
-	console.log(data);
-
 	const page = data.page || data.route.page;
 
 	const content = (page._rawContent || [])
@@ -80,8 +78,6 @@ const Page = (props) => {
 			}
 			return el;
 		});
-
-	console.log(page.navMenu);
 
 	const menuItems =
 		page.navMenu && (page.navMenu.items || []).filter((i) => !i.disabled);

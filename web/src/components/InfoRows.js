@@ -83,9 +83,9 @@ const InfoRows = (props) => {
 			className='flex justify-center items-center min-h-screen bg-white border-b'
 		>
 			<div className='container max-w-5xl mx-auto m-8'>
-				<h1 className='w-full my-2 text-5xl font-medium leading-tight text-center text-gray-800'>
+				<h2 className='w-full my-2 text-5xl font-medium leading-tight text-center text-gray-800'>
 					{props.title}
-				</h1>
+				</h2>
 				<div className='w-full mb-4'>
 					<div className='h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t'></div>
 				</div>
