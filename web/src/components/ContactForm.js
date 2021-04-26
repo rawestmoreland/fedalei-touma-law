@@ -73,12 +73,22 @@ const ContactForm = (props) => {
 					<div className='h-1 bg-mine-shaft mx-auto w-64 my-0 py-0'></div>
 				</div>
 				{props.phone && (
-					<h2 className='w-full my-2 text-5xl font-medium text-center text-gray-800 mb-10'>
+					<h2 className='w-full my-2 text-5xl font-medium text-center text-gray-800 mb-4'>
 						<a href={`tel:+1${props.phone.replace(/[^\d+]/g, '')}`}>
 							{props.phone}
 						</a>
 					</h2>
 				)}
+				<div className='w-full text-center mb-6 font-medium'>
+					<a
+						href='https://goo.gl/maps/rRxKsaxq82kMEnxB9'
+						target='_blank'
+						rel='noreferrer'
+					>
+						<h4>819 East North Street</h4>
+						<h4>Greenvile, SC 29601</h4>
+					</a>
+				</div>
 				<form
 					className='flex flex-col items-center'
 					onSubmit={handleSubmit(handlePost)}

@@ -23,7 +23,7 @@ module.exports = {
 		`gatsby-plugin-eslint`,
 		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-anchor-links`,
-		`gatsby-plugin-no-index`,
+		// `gatsby-plugin-no-index`,
 		`gatsby-plugin-sass`,
 		{
 			resolve: `gatsby-plugin-manifest`,
