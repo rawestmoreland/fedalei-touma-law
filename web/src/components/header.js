@@ -9,7 +9,7 @@ const maybeImage = (logo) => {
 	if (logo && logo.image && logo.image.asset) {
 		img = (
 			<img
-				className='max-h-10 md:max-h-24'
+				className='max-h-12 md:max-h-32'
 				src={imageUrlFor(buildImageObj(logo.image))
 					.maxWidth(2000)
 					.url()}
