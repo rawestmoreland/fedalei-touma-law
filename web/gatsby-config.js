@@ -59,6 +59,12 @@ module.exports = {
 			},
 		},
 		{
+			resolve: `gatsby-plugin-google-analytics`,
+			options: {
+				trackingId: 'G-5NSTCK9K2Y',
+			},
+		},
+		{
 			resolve: 'gatsby-plugin-sanity-image',
 			options: {
 				// Sanity project info (required)
