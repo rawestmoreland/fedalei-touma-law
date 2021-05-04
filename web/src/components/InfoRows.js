@@ -1,10 +1,7 @@
 import React from 'react';
 import PortableText from './portableText';
-
-//import { getFluidGatsbyImage } from 'gatsby-source-sanity';
 import { buildImageObj } from '../lib/helpers';
 import { imageUrlFor } from '../lib/image-url';
-//import clientConfig from '../../client-config';
 
 const maybeImage = (illustration) => {
 	let img = null;
@@ -14,12 +11,6 @@ const maybeImage = (illustration) => {
 		illustration.image &&
 		illustration.image.asset
 	) {
-		// const fluidProps = getFluidGatsbyImage(
-		// 	illustration.image.asset._id,
-		// 	{ maxWidth: 960 },
-		// 	clientConfig.sanity
-		// );
-
 		img = (
 			<img
 				src={imageUrlFor(buildImageObj(illustration.image)).url()}
