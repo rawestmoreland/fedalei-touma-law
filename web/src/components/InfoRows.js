@@ -35,11 +35,11 @@ const InfoRow = (props) => {
 	const sizeClass = img ? 'sm:w-1/2' : 'sm:w-1/1';
 	return (
 		<div className={'flex flex-wrap pb-6'}>
-			<div className={'w-5/6 p-6 ' + sizeClass}>
+			<div className={'w-full p-6 ' + sizeClass}>
 				<h3 className='text-3xl text-gray-800 font-medium leading-none mb-3'>
 					{props.title}
 				</h3>
-				<div className='text-gray-600 mb-8'>
+				<div className='text-justify text-gray-600 mb-8'>
 					<PortableText blocks={props.text} />
 				</div>
 			</div>
@@ -54,11 +54,11 @@ const InfoRowFlipped = (props) => {
 	return (
 		<div className={'flex flex-wrap pb-6 flex-col-reverse sm:flex-row'}>
 			{img && <div className={'w-full ' + sizeClass}>{img}</div>}
-			<div className={'w-5/6 p-6 ' + sizeClass}>
+			<div className={'w-full p-6 ' + sizeClass}>
 				<h3 className='text-3xl text-gray-800 font-medium leading-none mb-3'>
 					{props.title}
 				</h3>
-				<div className='text-gray-600 mb-8'>
+				<div className='text-justify text-gray-600 mb-8'>
 					<PortableText blocks={props.text} />
 				</div>
 			</div>
