@@ -4,7 +4,14 @@ import React from 'react';
 import Header from './header';
 
 function Layout(props) {
-	const { children, navMenuItems, navLogo, siteTitle, replaceTitle } = props;
+	const {
+		children,
+		navMenuItems,
+		navLogo,
+		siteTitle,
+		phone,
+		replaceTitle,
+	} = props;
 
 	return (
 		<div className='flex flex-col min-h-screen font-cinzel text-gray-900'>
@@ -13,6 +20,7 @@ function Layout(props) {
 				navLogo={navLogo}
 				siteTitle={siteTitle}
 				replaceTitle={replaceTitle}
+				phone={phone}
 			/>
 
 			<main className='flex-1 w-full'>{children}</main>

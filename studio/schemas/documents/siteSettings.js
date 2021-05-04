@@ -32,5 +32,10 @@ export default {
       title: 'Author',
       to: [{ type: 'author' }],
     },
+    {
+      name: 'phone',
+      type: 'string',
+      title: 'Phone Number',
+    },
   ],
 }

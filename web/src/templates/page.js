@@ -62,7 +62,7 @@ const Page = (props) => {
 			let el = null;
 			switch (c._type) {
 				case 'hero':
-					el = <Hero key={c._key} {...c} />;
+					el = <Hero key={c._key} {...c} phone={site.phone || ''} />;
 					break;
 				case 'infoRows':
 					el = <InfoRows key={c._key} {...c} />;

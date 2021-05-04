@@ -6,6 +6,7 @@ const query = graphql`
 	query SiteTitleQuery {
 		site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
 			title
+			phone
 		}
 	}
 `;
@@ -20,7 +21,13 @@ const LayoutContainer = (props) => {
 						'Missing "Site settings". Open the Studio at http://localhost:3333 and some content in "Site settings"'
 					);
 				}
-				return <Layout {...props} siteTitle={data.site.title} />;
+				return (
+					<Layout
+						{...props}
+						siteTitle={data.site.title}
+						phone={data.site.phone}
+					/>
+				);
 			}}
 		/>
 	);
