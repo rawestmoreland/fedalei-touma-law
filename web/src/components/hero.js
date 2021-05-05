@@ -34,16 +34,16 @@ function Hero(props) {
 				id={props.anchor || ''}
 				className='md:absolute md:top-0 md:left-0 flex flex-col p-4 w-full mx-auto xl:mt-5 rounded-md justify-between items-center z-45'
 			>
-				<h1 className='text-blueGrey-800 text-5xl xl:text-6xl font-medium leading-tight tracking-wide text-center'>
+				<h1 className='text-blueGrey-800 text-5xl xl:text-6xl 2xl:text-8xl 2xl:mb-4 font-medium leading-tight tracking-wide text-center'>
 					{props.heading}
 				</h1>
-				<div className='leading-normal text-2xl text-center font-normal'>
+				<div className='leading-normal text-2xl 2xl:text-3xl text-center font-normal'>
 					<PortableText blocks={props.tagline} />
 				</div>
 				{props.phone && (
-					<div className='py-4 md:py-2'>
+					<div className='py-4 md:py-2 2xl:py-4'>
 						<a
-							className='text-normal font-bold'
+							className='text-normal font-bold 2xl:text-2xl hover:underline'
 							href={`tel:+1${props.phone.replace(/[^\d+]/g, '')}`}
 						>
 							{props.phone}
@@ -53,8 +53,8 @@ function Hero(props) {
 				{props.cta && props.cta.title && (
 					<CTALink
 						{...props.cta}
-						buttonActionClass='mx-auto hover:underline bg-white text-blueGray-800 font-bold rounded-full md:my-2 py-4 px-8 shadow-lg'
-						linkActionClass='text-xl'
+						buttonActionClass='mx-auto hover:underline bg-white text-blueGray-800 font-bold rounded-full md:my-2 py-4 px-8 shadow-lg 2xl:text-2xl'
+						linkActionClass='text-xl 2xl:text-2xl'
 					/>
 				)}
 			</div>
