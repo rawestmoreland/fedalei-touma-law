@@ -23,7 +23,7 @@ module.exports = {
 		`gatsby-plugin-eslint`,
 		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-anchor-links`,
-		// `gatsby-plugin-no-index`,
+		`gatsby-plugin-no-index`,
 		`gatsby-plugin-sass`,
 		{
 			resolve: `gatsby-plugin-manifest`,
@@ -58,6 +58,12 @@ module.exports = {
 				overlayDrafts: !isProd,
 			},
 		},
+		// {
+		// 	resolve: `gatsby-plugin-google-analytics`,
+		// 	options: {
+		// 		trackingId: 'G-5NSTCK9K2Y',
+		// 	},
+		// },
 		{
 			resolve: `gatsby-plugin-google-gtag`,
 			options: {

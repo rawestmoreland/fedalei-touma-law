@@ -37,9 +37,19 @@ function Hero(props) {
 				<h1 className='text-blueGrey-800 text-5xl xl:text-6xl font-medium leading-tight tracking-wide text-center'>
 					{props.heading}
 				</h1>
-				<div className='leading-normal text-2xl text-center font-normal mb-8'>
+				<div className='leading-normal text-2xl text-center font-normal'>
 					<PortableText blocks={props.tagline} />
 				</div>
+				{props.phone && (
+					<div className='py-4 md:py-2'>
+						<a
+							className='text-normal font-bold'
+							href={`tel:+1${props.phone.replace(/[^\d+]/g, '')}`}
+						>
+							{props.phone}
+						</a>
+					</div>
+				)}
 				{props.cta && props.cta.title && (
 					<CTALink
 						{...props.cta}

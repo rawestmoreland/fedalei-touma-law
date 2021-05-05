@@ -62,26 +62,28 @@ const Header = (props) => {
 				<nav
 					className={`${
 						isExpanded ? `block` : `hidden`
-					} md:text-xl md:block md:items-center w-full md:w-auto`}
+					} md:text-xl md:flex md:items-center w-full md:w-auto md:flex-col`}
 				>
-					{(navMenuItems || []).map((link) =>
-						link.anchor ? (
-							<AnchorLink
-								key={link.title}
-								to={`${link.route || ''}${link.anchor}`}
-								title={link.title}
-								className='stripped block mt-4 text-blueGrey-800 no-underline md:inline-block md:mt-0 md:ml-6'
-							/>
-						) : (
-							<Link
-								className='block mt-4 text-blueGrey-800 no-underline md:inline-block md:mt-0 md:ml-6'
-								key={link.title}
-								to={link.route}
-							>
-								{link.title}
-							</Link>
-						)
-					)}
+					<div>
+						{(navMenuItems || []).map((link) =>
+							link.anchor ? (
+								<AnchorLink
+									key={link.title}
+									to={`${link.route || ''}${link.anchor}`}
+									title={link.title}
+									className='stripped block mt-4 text-blueGrey-800 no-underline md:inline-block md:mt-0 md:ml-6'
+								/>
+							) : (
+								<Link
+									className='block mt-4 text-blueGrey-800 no-underline md:inline-block md:mt-0 md:ml-6'
+									key={link.title}
+									to={link.route}
+								>
+									{link.title}
+								</Link>
+							)
+						)}
+					</div>
 				</nav>
 			</div>
 		</header>

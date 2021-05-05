@@ -11,6 +11,7 @@ export const query = graphql`
 
 		site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
 			title
+			phone
 			openGraph {
 				title
 				description
