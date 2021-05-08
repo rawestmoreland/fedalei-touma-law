@@ -10,7 +10,6 @@ function SEO({ description, lang, meta, keywords, title }) {
 		<StaticQuery
 			query={detailsQuery}
 			render={(data) => {
-				console.log(data);
 				const metaDescription =
 					description ||
 					(data.site &&

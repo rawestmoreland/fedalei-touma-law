@@ -52,10 +52,9 @@ const ContactForm = (props) => {
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 			body: encode({ 'form-name': 'Contact TF Law', ...formData }),
 		})
-			.then((response) => {
+			.then(() => {
 				navigate('/#top');
 				reset();
-				console.log(response);
 			})
 			.catch((error) => {
 				console.warn(error);
