@@ -58,12 +58,6 @@ module.exports = {
 				overlayDrafts: !isProd,
 			},
 		},
-		// {
-		// 	resolve: `gatsby-plugin-google-analytics`,
-		// 	options: {
-		// 		trackingId: 'G-5NSTCK9K2Y',
-		// 	},
-		// },
 		{
 			resolve: 'gatsby-plugin-sanity-image',
 			options: {
