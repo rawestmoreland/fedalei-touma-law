@@ -5,7 +5,7 @@ import Hero from '../components/hero';
 import InfoRows from '../components/InfoRows';
 import InfoColumns from '../components/InfoColumns';
 import ContactForm from '../components/ContactForm';
-import CustomerChat from '../components/customer-chat';
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 import { BsChevronDoubleUp as UpChevron } from 'react-icons/bs';
 
 import GraphQLErrorList from '../components/graphql-error-list';
@@ -98,7 +98,10 @@ const Page = (props) => {
 				keywords={site.keywords}
 			/>
 			{content}
-			<CustomerChat />
+			<MessengerCustomerChat
+				pageId={process.env.FACEBOOK_PAGEID}
+				appId={process.env.FACEBOOK_APPID}
+			/>
 			<button
 				id='scroll-btn'
 				className='hidden fixed bottom-20 right-4 md:bottom-24 md:right-10 scroll-btn bg-white bg-opacity-80 p-1 rounded'

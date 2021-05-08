@@ -27,6 +27,7 @@
 		"react-helmet": "6.1.0",
 		"react-hook-form": "^7.0.4",
 		"react-icons": "^4.2.0",
+		"react-messenger-customer-chat": "^0.8.0",
 		"react-portable-text": "^0.3.0",
 		"sass": "^1.32.10"
 	},
