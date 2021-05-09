@@ -98,10 +98,6 @@ const Page = (props) => {
 				keywords={site.keywords}
 			/>
 			{content}
-			<MessengerCustomerChat
-				pageId={process.env.FACEBOOK_PAGEID}
-				appId={process.env.FACEBOOK_APPID}
-			/>
 			<button
 				id='scroll-btn'
 				className='hidden fixed bottom-20 right-4 md:bottom-24 md:right-10 scroll-btn bg-white bg-opacity-80 p-1 rounded'
