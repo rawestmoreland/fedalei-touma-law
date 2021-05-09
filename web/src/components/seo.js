@@ -6,6 +6,7 @@ import { imageUrlFor } from '../lib/image-url';
 import { buildImageObj } from '../lib/helpers';
 
 function SEO({ description, lang, meta, keywords, title }) {
+	console.log(keywords);
 	return (
 		<StaticQuery
 			query={detailsQuery}

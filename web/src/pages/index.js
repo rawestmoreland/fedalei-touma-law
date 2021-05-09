@@ -12,9 +12,11 @@ export const query = graphql`
 		site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
 			title
 			phone
+			keywords
 			openGraph {
 				title
 				description
+				keywords
 				image {
 					...SanityImage
 				}
