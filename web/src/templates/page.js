@@ -5,7 +5,6 @@ import Hero from '../components/hero';
 import InfoRows from '../components/InfoRows';
 import InfoColumns from '../components/InfoColumns';
 import ContactForm from '../components/ContactForm';
-import MessengerCustomerChat from 'react-messenger-customer-chat';
 import { BsChevronDoubleUp as UpChevron } from 'react-icons/bs';
 
 import GraphQLErrorList from '../components/graphql-error-list';
