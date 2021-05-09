@@ -16,7 +16,6 @@ function BlogPost(props) {
 		mainImage,
 		publishedAt,
 	} = props;
-	console.log(categories);
 	return (
 		<article>
 			{mainImage && mainImage.asset && (
