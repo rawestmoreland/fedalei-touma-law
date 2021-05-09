@@ -57,6 +57,18 @@ export const query = graphql`
 				}
 			}
 		}
+		site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+			title
+			keywords
+			openGraph {
+				title
+				description
+				keywords
+				image {
+					...SanityImage
+				}
+			}
+		}
 	}
 `;
 
@@ -82,6 +94,7 @@ const BlogPostTemplate = (props) => {
 					title={post.title || 'Untitled'}
 					description={toPlainText(post._rawExcerpt)}
 					image={post.mainImage}
+					keywords={data.site.keywords}
 				/>
 			)}
 
