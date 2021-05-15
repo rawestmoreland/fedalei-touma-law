@@ -24,6 +24,7 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-anchor-links`,
     `gatsby-plugin-sass`,
+    `gatsby-plugin-no-index`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
