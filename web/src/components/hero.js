@@ -21,7 +21,7 @@ function Hero(props) {
   return (
     <div
       id={props.anchor || ""}
-      className="border-b relative w-screen mx-auto flex flex-wrap flex-col lg:flex-row items-start pb-6 md:pb-0"
+      className="border-b relative w-full mx-auto flex flex-wrap flex-col lg:flex-row items-start pb-6 md:pb-0"
     >
       <div className="relative bg-white">{img}</div>
       <div
