@@ -10,7 +10,6 @@
   "plugins": [
     "@sanity/base",
     "@sanity/components",
-    "media-library",
     "@sanity/default-layout",
     "@sanity/default-login",
     "@sanity/desk-tool",
