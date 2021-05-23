@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 import React, { useState } from "react"
 import Image from "gatsby-plugin-sanity-image"
+import navMenu from "../../../studio/schemas/documents/navMenu"
 
 const maybeImage = logo => {
   let img = null
