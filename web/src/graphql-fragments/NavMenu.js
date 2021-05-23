@@ -4,10 +4,12 @@ export const NavMenu = graphql`
   fragment NavMenu on SanityNavigationMenu {
     items {
       title
-      kind
-      link
       route
       anchor
+      subMenu {
+        link
+        name
+      }
       landingPageRoute {
         ... on SanityRoute {
           id
