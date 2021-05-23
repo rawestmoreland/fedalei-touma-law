@@ -1,8 +1,9 @@
 import { Link } from "gatsby"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
+import CTALink from "./CTALink"
 import React, { useState } from "react"
 import Image from "gatsby-plugin-sanity-image"
-import navMenu from "../../../studio/schemas/documents/navMenu"
+import { BsChevronDown } from "react-icons/bs"
 
 const maybeImage = logo => {
   let img = null
@@ -56,26 +57,67 @@ const Header = props => {
             isExpanded ? `block` : `hidden`
           } md:text-xl md:flex md:items-center w-full md:w-auto md:flex-col`}
         >
-          <div>
+          <ul className="md:flex">
             {(navMenuItems || []).map(link =>
               link.anchor ? (
-                <AnchorLink
-                  key={link.title}
-                  to={`${link.route || ""}${link.anchor}`}
-                  title={link.title}
-                  className="stripped block mt-4 text-blueGrey-800 no-underline md:inline-block md:mt-0 md:ml-6"
-                />
-              ) : (
-                <Link
-                  className="block mt-4 text-blueGrey-800 no-underline md:inline-block md:mt-0 md:ml-6"
-                  key={link.title}
-                  to={link.route}
+                <li
+                  className={`${link.subMenu.length > 0 ? "dropdown" : ""}`}
+                  key={link._key}
                 >
-                  {link.title}
-                </Link>
+                  <div className="flex items-center">
+                    <AnchorLink
+                      to={`${link.route || ""}${link.anchor}`}
+                      title={link.title}
+                      className={`stripped block mt-4 text-blueGrey-800 no-underline md:inline-block md:mt-0 md:ml-6`}
+                    />
+                    {link.subMenu.length > 0 && (
+                      <BsChevronDown className="mt-4 md:mt-0 ml-2" />
+                    )}
+                  </div>
+                  {link.subMenu && link.subMenu.length > 0 ? (
+                    <ul className="dropdown-menu hidden md:absolute md:py-1 ml-6 z-50">
+                      <div className="bg-white pt-1 rounded">
+                        {link.subMenu.map(subLink =>
+                          subLink.anchor ? (
+                            <li
+                              key={subLink._key}
+                              className="text-xs md:text-base pb-1"
+                            >
+                              <AnchorLink
+                                to={`${subLink.route || ""}${subLink.anchor}`}
+                                title={subLink.title}
+                              />
+                            </li>
+                          ) : (
+                            <li
+                              key={subLink._key}
+                              className="text-xs md:text-base pb-1"
+                            >
+                              <CTALink {...subLink}>{subLink.title}</CTALink>
+                            </li>
+                          )
+                        )}
+                      </div>
+                    </ul>
+                  ) : null}
+                </li>
+              ) : (
+                <li key={link._key}>
+                  <div className="flex items-center">
+                    <Link
+                      className="block mt-4 text-blueGrey-800 no-underline md:inline-block md:mt-0 md:ml-6"
+                      to={link.route}
+                    >
+                      {link.title}
+                    </Link>
+                    {link.subMenu.length > 0 && (
+                      <BsChevronDown className="ml-2" />
+                    )}
+                  </div>
+                </li>
               )
             )}
-          </div>
+          </ul>
         </nav>
       </div>
     </header>

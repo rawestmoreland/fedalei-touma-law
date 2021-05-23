@@ -6,9 +6,23 @@ export const NavMenu = graphql`
       title
       route
       anchor
+      link
+      _key
       subMenu {
+        title
+        anchor
+        route
         link
-        name
+        _key
+        landingPageRoute {
+          ... on SanityRoute {
+            id
+            _type
+            slug {
+              current
+            }
+          }
+        }
       }
       landingPageRoute {
         ... on SanityRoute {

@@ -43,6 +43,22 @@ export default {
       description: 'Example: #about',
     },
     {
+      title: 'External link',
+      name: 'link',
+      type: 'string',
+      description: 'Example: https://www.sanity.io',
+      fieldset: 'link',
+    },
+    {
+      title: 'Kind',
+      name: 'kind',
+      type: 'string',
+      options: {
+        layout: 'radio',
+        list: ['button', 'link'],
+      },
+    },
+    {
       title: 'Sub Menu (Drop-Down)',
       name: 'subMenu',
       description: 'Leave blank if you do not want a drop down menu.',
