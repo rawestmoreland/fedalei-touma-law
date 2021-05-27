@@ -17,6 +17,8 @@ import mainImage from './objects/mainImage'
 import openGraph from './objects/openGraph'
 import page from './documents/page'
 import navMenu from './documents/navMenu'
+import menuLink from './objects/menuLink'
+import subMenu from './objects/subMenu'
 import hero from './objects/hero'
 import route from './documents/route'
 import illustration from './objects/illustration'
@@ -53,6 +55,8 @@ export default createSchema({
     page,
     mainImage,
     navMenu,
+    menuLink,
+    subMenu,
     openGraph,
     route,
     simpleBlockContent,

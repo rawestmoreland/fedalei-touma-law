@@ -1,54 +1,54 @@
-import React from 'react';
-import { Link, navigate } from 'gatsby';
+import React from "react"
+import { Link, navigate } from "gatsby"
 
-const doNavigate = (target) => {
-	if (!target || !target.length) {
-		return;
-	}
-	const internal = /^\/(?!\/)/.test(target);
-	if (internal) {
-		navigate(target);
-	} else {
-		window.location = target;
-	}
-};
+const doNavigate = target => {
+  if (!target || !target.length) {
+    return
+  }
+  const internal = /^\/(?!\/)/.test(target)
+  if (internal) {
+    navigate(target)
+  } else {
+    window.location = target
+  }
+}
 
-const CTALink = (props) => {
-	let link = props.route || props.link || props.anchor || '#';
-	if (
-		props.landingPageRoute &&
-		props.landingPageRoute.slug &&
-		props.landingPageRoute.slug.current
-	) {
-		link = props.landingPageRoute.slug.current;
-	}
+const CTALink = props => {
+  let link = props.route || props.link || props.anchor || "#"
+  if (
+    props.landingPageRoute &&
+    props.landingPageRoute.slug &&
+    props.landingPageRoute.slug.current
+  ) {
+    link = props.landingPageRoute.slug.current
+  }
 
-	if (props.kind === 'button') {
-		return (
-			<button
-				id='navAction'
-				onClick={() => doNavigate(link)}
-				className={props.buttonActionClass || ''}
-			>
-				{props.title}
-			</button>
-		);
-	}
+  if (props.kind === "button") {
+    return (
+      <button
+        id="navAction"
+        onClick={() => doNavigate(link)}
+        className={props.buttonActionClass || ""}
+      >
+        {props.title}
+      </button>
+    )
+  }
 
-	// External
-	if (props.link) {
-		return (
-			<a href={props.link} target='_blank' rel='noopener noreferrer'>
-				{props.title}
-			</a>
-		);
-	}
+  // External
+  if (props.link) {
+    return (
+      <a href={props.link} target="_blank" rel="noopener noreferrer">
+        {props.title}
+      </a>
+    )
+  }
 
-	return (
-		<Link className={props.linkActionClass || ''} to={link}>
-			{props.title}
-		</Link>
-	);
-};
+  return (
+    <Link className={props.linkActionClass || ""} to={link}>
+      {props.title}
+    </Link>
+  )
+}
 
-export default CTALink;
+export default CTALink
