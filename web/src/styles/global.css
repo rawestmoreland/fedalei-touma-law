@@ -21,3 +21,7 @@
   object-fit: cover;
   max-width: 100%;
 }
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
