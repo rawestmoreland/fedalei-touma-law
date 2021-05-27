@@ -57,25 +57,27 @@ const Header = props => {
             isExpanded ? `block` : `hidden`
           } md:text-xl md:flex md:items-center w-full md:w-auto md:flex-col`}
         >
-          <ul className="md:flex">
+          <ul className="md:flex md:pt-4">
             {(navMenuItems || []).map(link =>
               link.anchor ? (
                 <li
-                  className={`${link.subMenu.length > 0 ? "dropdown" : ""}`}
+                  className={`${
+                    link.subMenu.length > 0 ? "dropdown" : ""
+                  } md:first:ml-0 md:ml-6`}
                   key={link._key}
                 >
                   <div className="flex items-center">
                     <AnchorLink
                       to={`${link.route || ""}${link.anchor}`}
                       title={link.title}
-                      className={`stripped block mt-4 text-blueGrey-800 no-underline md:inline-block md:mt-0 md:ml-6`}
+                      className={`stripped block mt-4 text-blueGrey-800 no-underline md:inline-block md:mt-0`}
                     />
                     {link.subMenu.length > 0 && (
                       <BsChevronDown className="mt-4 md:mt-0 ml-2" />
                     )}
                   </div>
                   {link.subMenu && link.subMenu.length > 0 ? (
-                    <ul className="dropdown-menu hidden md:absolute md:py-1 ml-6 z-50">
+                    <ul className="dropdown-menu hidden md:absolute md:py-1 z-50">
                       <div className="bg-white pt-1 rounded">
                         {link.subMenu.map(subLink =>
                           subLink.anchor ? (
@@ -102,10 +104,10 @@ const Header = props => {
                   ) : null}
                 </li>
               ) : (
-                <li key={link._key}>
+                <li className="md:ml-6" key={link._key}>
                   <div className="flex items-center">
                     <Link
-                      className="block mt-4 text-blueGrey-800 no-underline md:inline-block md:mt-0 md:ml-6"
+                      className="block mt-4 text-blueGrey-800 no-underline md:inline-block md:mt-0"
                       to={link.route}
                     >
                       {link.title}
