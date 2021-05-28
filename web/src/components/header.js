@@ -57,7 +57,7 @@ const Header = props => {
             isExpanded ? `block` : `hidden`
           } md:text-xl md:flex md:items-center w-full md:w-auto md:flex-col`}
         >
-          <ul className="md:flex">
+          <ul className="md:flex md:pt-4 lg60:pt-0">
             {(navMenuItems || []).map(link =>
               link.anchor ? (
                 <li
