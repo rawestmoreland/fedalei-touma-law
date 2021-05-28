@@ -57,13 +57,14 @@ const Header = props => {
             isExpanded ? `block` : `hidden`
           } md:text-xl md:flex md:items-center w-full md:w-auto md:flex-col`}
         >
-          <ul className="md:flex md:pt-4">
+          <ul className="md:flex">
             {(navMenuItems || []).map(link =>
               link.anchor ? (
                 <li
-                  className={`${
-                    link.subMenu.length > 0 ? "dropdown" : ""
-                  } md:first:ml-0 md:ml-6`}
+                  className={
+                    `${link.subMenu.length > 0 ? "dropdown" : ""}` +
+                    " md:ml-6 md:first:ml-0"
+                  }
                   key={link._key}
                 >
                   <div className="flex items-center">

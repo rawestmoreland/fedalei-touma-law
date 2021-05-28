@@ -1,6 +1,9 @@
 // See https://tailwindcss.com/docs/configuration for details
 module.exports = {
   purge: ["./src/**/*.js"],
+  variants: {
+    margin: ["responsive", "first"],
+  },
   // https://github.com/tailwindlabs/tailwindcss-forms
   plugins: [require("@tailwindcss/forms")],
   theme: {
@@ -39,8 +42,5 @@ module.exports = {
       "2xl": "1536px",
       // => @media (min-width: 1536px) { ... }
     },
-  },
-  variants: {
-    margin: ["first"],
   },
 }
