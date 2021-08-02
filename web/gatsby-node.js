@@ -53,11 +53,11 @@ const getGoogleReviews = async () => {
 }
 
 /* Do things before the buld starts */
-exports.onPreBuild = async ({ reporter }) => {
-  reporter.info(`Running Pre Build Things...`)
-  // Get Google reviews and send to Sanity
-  await getGoogleReviews()
-}
+// exports.onPreBuild = async ({ reporter }) => {
+//   reporter.info(`Running Pre Build Things...`)
+//   // Get Google reviews and send to Sanity
+//   await getGoogleReviews()
+// }
 
 exports.createSchemaCustomization = ({ actions, schema }) => {
   actions.createTypes([
