@@ -53,7 +53,7 @@ const GoogleReviews = props => {
     return (
       <div key={r.id}>
         <StarRating rating={r.rating} id={r.id} />
-        <div className="mx-12 text-center">
+        <div className="mx-12 text-center font-poppins">
           <p>{r.body}</p>
         </div>
       </div>
