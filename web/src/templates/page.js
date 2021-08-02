@@ -5,6 +5,8 @@ import Hero from "../components/hero"
 import InfoRows from "../components/InfoRows"
 import InfoColumns from "../components/InfoColumns"
 import ContactForm from "../components/ContactForm"
+import GoogleReviews from "../components/google-reviews"
+import Reviews from "../components/reviews"
 import { BsChevronDoubleUp as UpChevron } from "react-icons/bs"
 
 import GraphQLErrorList from "../components/graphql-error-list"
@@ -74,6 +76,9 @@ const Page = props => {
           break
         case "contactForm":
           el = <ContactForm key={c._key} {...c} />
+          break
+        case "reviews":
+          el = <Reviews key={c._key} {...c} />
           break
         default:
           el = null

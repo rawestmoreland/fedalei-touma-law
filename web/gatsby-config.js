@@ -33,6 +33,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-google-reviews-en`,
+      options: {
+        placeId: process.env.PLACE_ID,
+        apiKey: process.env.GATSBY_SCALE_SERP_API_KEY,
+      },
+    },
+    {
       resolve: "gatsby-source-sanity",
       options: {
         ...clientConfig.sanity,

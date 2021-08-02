@@ -30,6 +30,8 @@ import textWithIllustration from './objects/textWithIllustration'
 import infoRows from './objects/infoRows'
 import contactForm from './objects/contactForm'
 import contact from './documents/contact'
+import review from './documents/review'
+import reviews from './objects/reviews'
 import infoColumns from './objects/infoColumns'
 import simpleText from './objects/simpleText'
 
@@ -65,6 +67,8 @@ export default createSchema({
     textWithIllustration,
     contactForm,
     contact,
+    review,
+    reviews,
     hero,
     blockContent,
     infoColumns,
