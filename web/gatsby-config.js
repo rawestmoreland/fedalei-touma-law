@@ -24,11 +24,19 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-anchor-links`,
     `gatsby-plugin-sass`,
+    `gatsby-plugin-no-index`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-google-reviews-en`,
+      options: {
+        placeId: process.env.PLACE_ID,
+        apiKey: process.env.GATSBY_SCALE_SERP_API_KEY,
       },
     },
     {

@@ -26,6 +26,7 @@ export default {
         { type: 'infoRows' },
         { type: 'infoColumns' },
         { type: 'contactForm' },
+        { type: 'reviews' },
       ],
     },
   ],
