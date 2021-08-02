@@ -7,50 +7,50 @@ const slugify = require("slugify")
 const axios = require("axios")
 const sanityClient = require("@sanity/client")
 
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV || "development"}`,
-})
+// require("dotenv").config({
+//   path: `.env.${process.env.NODE_ENV || "development"}`,
+// })
 
-const client = sanityClient({
-  projectId: process.env.GATSBY_SANITY_PROJECT_ID,
-  dataset: process.env.GATSBY_SANITY_DATASET,
-  token: process.env.GATSBY_SANITY_TOKEN,
-  useCdn: false,
-})
+// const client = sanityClient({
+//   projectId: process.env.GATSBY_SANITY_PROJECT_ID,
+//   dataset: process.env.GATSBY_SANITY_DATASET,
+//   token: process.env.GATSBY_SANITY_TOKEN,
+//   useCdn: false,
+// })
 /**
  * Implement Gatsby's Node APIs in this file.
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-const getGoogleReviews = async () => {
-  console.log("=> Fetching reviews data..")
-  const url = `https://maps.googleapis.com/maps/api/place/details/json?placeid=${process.env.PLACE_ID}&key=${process.env.PLACE_KEY}`
-  return new Promise((resolve, reject) => {
-    let reviews
-    axios.get(url).then(async res => {
-      console.log("=> Reviews data fetched!")
-      if (res.data.status === "OK") {
-        reviews = res.data.result.reviews
-        for (let i = 0; i < reviews.length; i++) {
-          const review = {
-            _id: slugify(reviews[i].author_name),
-            _type: "review",
-            name: reviews[i].author_name,
-            rating: reviews[i].rating,
-            message: reviews[i].text,
-          }
-          await client.createOrReplace(review).then(res => {
-            console.log(
-              `Review from ${res._id} was created (or was already present)`
-            )
-          })
-        }
-      }
-      resolve(reviews)
-    })
-  })
-}
+// const getGoogleReviews = async () => {
+//   console.log("=> Fetching reviews data..")
+//   const url = `https://maps.googleapis.com/maps/api/place/details/json?placeid=${process.env.PLACE_ID}&key=${process.env.PLACE_KEY}`
+//   return new Promise((resolve, reject) => {
+//     let reviews
+//     axios.get(url).then(async res => {
+//       console.log("=> Reviews data fetched!")
+//       if (res.data.status === "OK") {
+//         reviews = res.data.result.reviews
+//         for (let i = 0; i < reviews.length; i++) {
+//           const review = {
+//             _id: slugify(reviews[i].author_name),
+//             _type: "review",
+//             name: reviews[i].author_name,
+//             rating: reviews[i].rating,
+//             message: reviews[i].text,
+//           }
+//           await client.createOrReplace(review).then(res => {
+//             console.log(
+//               `Review from ${res._id} was created (or was already present)`
+//             )
+//           })
+//         }
+//       }
+//       resolve(reviews)
+//     })
+//   })
+// }
 
 /* Do things before the buld starts */
 // exports.onPreBuild = async ({ reporter }) => {
