@@ -15,7 +15,7 @@ const StarRating = ({ rating, id }) => {
       )
     }
   }
-  return <div className="flex justify-center mb-8 mt-2">{stars}</div>
+  return <div className="flex justify-center mb-4 mt-2">{stars}</div>
 }
 
 const GoogleReviews = props => {
