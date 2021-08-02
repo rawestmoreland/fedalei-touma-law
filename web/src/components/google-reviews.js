@@ -48,17 +48,19 @@ const GoogleReviews = props => {
     speed: 500,
   }
 
-  const content = reviews.map(r => {
-    r = r.node
-    return (
-      <div key={r.id}>
-        <StarRating rating={r.rating} id={r.id} />
-        <div className="flex justify-center mx-12 text-justify font-poppins">
-          <p>{r.body}</p>
+  const content = reviews
+    .filter(r => r.node.rating === 5)
+    .map(r => {
+      r = r.node
+      return (
+        <div key={r.id}>
+          <StarRating rating={r.rating} id={r.id} />
+          <div className="flex justify-center mx-12 text-justify font-poppins">
+            <p>{r.body}</p>
+          </div>
         </div>
-      </div>
-    )
-  })
+      )
+    })
 
   return <Slider {...settings}>{content}</Slider>
 }
