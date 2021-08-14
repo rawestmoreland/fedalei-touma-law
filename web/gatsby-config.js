@@ -37,22 +37,9 @@ module.exports = {
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {
-        resolveEnv: () => NETLIFY_ENV,
-        env: {
-          production: {
-            policy: [{ userAgent: "*" }],
-          },
-          "branch-deploy": {
-            policy: [{ userAgent: "*", disallow: ["/"] }],
-            sitemap: null,
-            host: null,
-          },
-          "deploy-preview": {
-            policy: [{ userAgent: "*", disallow: ["/"] }],
-            sitemap: null,
-            host: null,
-          },
-        },
+        host: "https://www.tflawsc.com",
+        sitemap: "https://www.tflawsc.com/sitemap.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
       },
     },
     {
