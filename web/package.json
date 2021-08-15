@@ -20,6 +20,7 @@
     "gatsby-plugin-sanity-image": "^0.6.0",
     "gatsby-plugin-sass": "^4.5.0",
     "gatsby-plugin-sharp": "^3.4.1",
+    "gatsby-plugin-sitemap": "^4.7.0",
     "gatsby-source-filesystem": "^3.4.0",
     "gatsby-source-google-reviews-en": "^1.0.2",
     "gatsby-source-sanity": "^7.0.4",
