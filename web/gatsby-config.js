@@ -34,17 +34,8 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-anchor-links`,
     `gatsby-plugin-sass`,
-    {
-      resolve: "gatsby-plugin-robots-txt",
-      options: {
-        host: "https://www.tflawsc.com",
-        sitemap: "https://www.tflawsc.com/sitemap/sitemap-index.xml",
-        policy: [{ userAgent: "*", allow: "/" }],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-sitemap`,
-    },
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-robots-txt`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
