@@ -23,7 +23,9 @@ export default {
       name: 'publishedAt',
       type: 'datetime',
       title: 'Published at',
-      description: 'This can be used to schedule post for publishing',
+      description:
+        'This is used to schedule a post for publishing. If scheduled in the future, the post will not display on your blog until that date. But it must be published and the site must be re-deployed.',
+      validation: (Rule) => Rule.required().error('A published date is required.'),
     },
     {
       name: 'mainImage',
@@ -96,6 +98,9 @@ export default {
       ],
     },
   ],
+  initialValue: () => ({
+    publishedAt: new Date().toISOString(),
+  }),
   preview: {
     select: {
       title: 'title',

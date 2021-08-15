@@ -12,19 +12,39 @@ const tailwindConfig = require("./tailwind.config.js")
 
 const fullConfig = resolveConfig(tailwindConfig)
 
+const {
+  NODE_ENV,
+  URL: NETLIFY_SITE_URL = "https://www.tflawsc.com",
+  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
+  CONTEXT: NETLIFY_ENV = NODE_ENV,
+} = process.env
+const isNetlifyProduction = NETLIFY_ENV === "production"
+const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
+
 module.exports = {
   siteMetadata: {
     title: `Touma and Fedalei LLP`,
     description: `Touma and Fedalei: Criminal Defense in South Carolina`,
     author: `Richard Westmoreland`,
     url: `https://tflawsc.com`,
+    siteUrl,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     `gatsby-plugin-anchor-links`,
     `gatsby-plugin-sass`,
-    `gatsby-plugin-no-index`,
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://www.tflawsc.com",
+        sitemap: "https://www.tflawsc.com/sitemap/sitemap-index.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
