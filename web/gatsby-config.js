@@ -38,7 +38,7 @@ module.exports = {
       resolve: "gatsby-plugin-robots-txt",
       options: {
         host: "https://www.tflawsc.com",
-        sitemap: "https://www.tflawsc.com/sitemap.xml",
+        sitemap: "https://www.tflawsc.com/sitemap/sitemap-index.xml",
         policy: [{ userAgent: "*", allow: "/" }],
       },
     },
