@@ -119,7 +119,7 @@ const ContactForm = props => {
                 </span>
               )}
               <input
-                className="border border-gray-400 mb-4 h-12 px-2 w-full"
+                className="border border-gray-400 mb-4 h-12 px-2 w-full font-poppins"
                 name="firstname"
                 {...register("firstname", { required: true })}
               />
@@ -132,7 +132,7 @@ const ContactForm = props => {
                 </span>
               )}
               <input
-                className="border border-gray-400 mb-4 h-12 px-2 w-full"
+                className="border border-gray-400 mb-4 h-12 px-2 w-full font-poppins"
                 name="lastname"
                 {...register("lastname", { required: true })}
               />
@@ -147,7 +147,7 @@ const ContactForm = props => {
                 </span>
               )}
               <input
-                className="border border-gray-400 mb-4 h-12 w-full px-2"
+                className="border border-gray-400 mb-4 h-12 w-full px-2 font-poppins"
                 name="email"
                 {...register("email", {
                   required: true,
@@ -161,7 +161,7 @@ const ContactForm = props => {
             <label htmlFor="phone">
               <p>Phone</p>
               <input
-                className="border border-gray-400 mb-4 h-12 w-full px-2"
+                className="border border-gray-400 mb-4 h-12 w-full px-2 font-poppins"
                 name="phone"
                 value={phone}
                 onChange={handlePhoneChange}
@@ -172,7 +172,7 @@ const ContactForm = props => {
             <label htmlFor="message">
               <p>Message</p>
               <textarea
-                className="border border-gray-400 mb-4 w-full p-2"
+                className="border border-gray-400 mb-4 w-full p-2 font-poppins"
                 rows="5"
                 name="message"
                 {...register("message")}
